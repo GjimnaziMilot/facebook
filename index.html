@@ -1,122 +1,553 @@
 <!DOCTYPE html>
+
 <html lang="sq">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Gjimnazi Milot - Njoftime</title>
 
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     
-    <style>
-        /* =========================
-           CSS I INTEGRUAR DHE RESPONSIVE
-        ========================= */
-        html, body { overflow-x: hidden !important; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f4f4f4; color: #333; }
-        *, *:before, *:after { box-sizing: border-box; }
 
-        /* NAVBAR */
-        .navbar-custom { background-color: #1a2a6c; border: none; padding: 15px 0; }
-        .navbar-custom .navbar-brand { color: #ffffff !important; font-weight: 600; }
-        .navbar-custom .navbar-nav > li > a { color: #ffffff !important; }
-        .navbar-custom .navbar-toggle .icon-bar { background-color: #ffffff !important; }
+    <!-- Lidhja me skedarin tënd që dërgove -->
 
-        /* CONTENT */
-        .main-content { width: 95%; max-width: 1000px; margin: 40px auto; }
-        .njoftime-section { background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+    <link rel="stylesheet" href="njoftfb.css">
 
-        /* KARTAT */
-        .njoftim-card { display: flex; background-color: #ffffff; border: 1px solid #e5e5e5; border-left: 5px solid #1a2a6c; border-radius: 8px; overflow: hidden; margin-bottom: 15px; }
-        .njoftim-date { width: 150px; background-color: #f7f7f7; display: flex; justify-content: center; align-items: center; padding: 15px; font-weight: bold; color: #1a2a6c; text-align: center; }
-        .njoftim-content { flex: 1; padding: 20px; }
 
-        /* CAROUSEL DHE FACEBOOK */
-        #lajmet-carousel { width: 100%; max-width: 600px; margin: 0 auto; }
-        .fb-page { width: 100% !important; }
 
-        /* TICKER (SHIRITI) */
-        .shirit-njoftime-kontainer-madh { width: 100%; overflow: hidden; background: white; border-radius: 8px; padding: 15px; }
-        .shirit-njoftime-track { display: flex; width: max-content; animation: levizShiritin 40s linear infinite; }
-        .ticker-item { width: 300px; margin-right: 20px; flex-shrink: 0; }
-        @keyframes levizShiritin { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* RESPONSIVE PËR CELULARË */
-        @media (max-width: 768px) {
-            .njoftim-card, .ticker-item { flex-direction: column; width: 100% !important; }
-            .njoftim-date { width: 100%; border-left: none; border-bottom: 2px solid #e5e5e5; }
-            .section-header h2 { font-size: 22px; }
-        }
-    </style>
+
 </head>
+
+
 
 <body>
 
+
+
+    <!-- Skripti i Facebook -->
+
     <div id="fb-root"></div>
+
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/sq_AL/sdk.js#xfbml=1&version=v18.0"></script>
 
+
+
+    <!-- Navbar nga kodi yt -->
+
     <nav class="navbar navbar-custom">
+
         <div class="container">
+
             <div class="navbar-header">
+
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
                     <span class="icon-bar"></span>
+
                     <span class="icon-bar"></span>
+
                     <span class="icon-bar"></span>
+
                 </button>
+
                 <a class="navbar-brand" href="index.html">Gjimnazi Milot</a>
+
             </div>
+
             <div class="collapse navbar-collapse" id="myNavbar">
+
                 <ul class="nav navbar-nav navbar-right">
+
                     <li class="active"><a href="njof.html">Njoftime</a></li>
+
                     <li><a href="matura.html">Matura Shtetërore</a></li>
+
                     <li><a href="Organizimi.html">Organizimi i shkollës</a></li>
+
                     <li><a href="aktivitete.html">Aktivitete</a></li>
+
                     <li><a href="kontakt.html">Kontakt</a></li>
+
                 </ul>
+
             </div>
+
         </div>
+
     </nav>
 
+
+
     <main class="main-content">
-        <section class="njoftime-section">
-            <div class="text-center" style="margin-bottom: 30px;">
+
+        <section class="njoftime-section" style="padding-top: 10px; background-color: transparent; box-shadow: none;">
+
+            
+
+            <div class="section-header text-center" style="margin-bottom: 50px;">
+
                 <h2>Informacione dhe Lajme</h2>
-                <div class="underline" style="width: 50px; height: 3px; background: #ffca28; margin: 10px auto;"></div>
+
+                <div class="underline"></div>
+
             </div>
 
-            <!-- CAROUSEL -->
-            <div id="lajmet-carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <article class="njoftim-card">
-                            <div class="njoftim-date">ZVAP Kurbin</div>
-                            <div class="njoftim-content">
-                                <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100064178460927" data-tabs="timeline" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
-                            </div>
-                        </article>
+
+
+            <!-- ========================================================= -->
+
+            <!-- 1. FACEBOOK CAROUSEL (NË QENDËR ME SHIGJETA)              -->
+
+            <!-- ========================================================= -->
+
+            <div class="row" style="margin-bottom: 60px;">
+
+                <div class="col-xs-12">
+
+                    
+
+                    <div class="text-center" style="margin-bottom: 25px; color: #1a2a6c; font-size: 26px; font-weight: bold;">
+
+                        Lajmet e fundit
+
                     </div>
+
+
+
+                    <!-- CAROUSEL -->
+
+                    <div id="lajmet-carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+
+                        <div class="carousel-inner" role="listbox">
+
+                            
+
+                            <!-- FAQJA 1: ZVAP -->
+
+                            <div class="item active">
+
+                                <article class="njoftim-card fb-karta-qender">
+
+                                    <!-- Data në të majtë, siç e ke në CSS -->
+
+                                    <div class="njoftim-date">ZVAP Kurbin</div>
+
+                                    <!-- Përmbajtja në të djathtë -->
+
+                                    <div class="njoftim-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px 10px;">
+
+                                        <div class="fb-page" 
+
+                                             data-href="https://www.facebook.com/profile.php?id=100064178460927" 
+
+                                             data-tabs="timeline" 
+
+                                             data-width="500" 
+
+                                             data-height="400" 
+
+                                             data-small-header="false" 
+
+                                             data-adapt-container-width="true" 
+
+                                             data-hide-cover="false" 
+
+                                             data-show-facepile="true">
+
+                                            <blockquote class="fb-xfbml-parse-ignore">
+
+                                                <a href="https://www.facebook.com/profile.php?id=100064178460927">Zyra Vendore e Arsimit Parauniversitar Kurbin</a>
+
+                                            </blockquote>
+
+                                        </div>
+
+                                        <a href="https://www.facebook.com/profile.php?id=100064178460927" target="_blank" style="margin-top: 20px;">
+
+                                            <span class="tag">Facebook-shiko më shumë</span>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+
+
+                            <!-- FAQJA 2: AKAP -->
+
+                            <div class="item">
+
+                                <article class="njoftim-card fb-karta-qender">
+
+                                    <div class="njoftim-date">AKAP</div>
+
+                                    <div class="njoftim-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px 10px;">
+
+                                        <div class="fb-page" 
+
+                                             data-href="https://www.facebook.com/arsimiparauniversitar" 
+
+                                             data-tabs="timeline" 
+
+                                             data-width="500" 
+
+                                             data-height="400" 
+
+                                             data-small-header="false" 
+
+                                             data-adapt-container-width="true" 
+
+                                             data-hide-cover="false" 
+
+                                             data-show-facepile="true">
+
+                                            <blockquote class="fb-xfbml-parse-ignore">
+
+                                                <a href="https://www.facebook.com/arsimiparauniversitar">Agjencia Kombëtare e Arsimit Parauniversitar</a>
+
+                                            </blockquote>
+
+                                        </div>
+
+                                        <a href="https://www.facebook.com/arsimiparauniversitar" target="_blank" style="margin-top: 20px;">
+
+                                            <span class="tag">Facebook-shiko më shumë</span>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+
+
+                            <!-- FAQJA 3: ASCAP -->
+
+                            <div class="item">
+
+                                <article class="njoftim-card fb-karta-qender">
+
+                                    <div class="njoftim-date">ASCAP</div>
+
+                                    <div class="njoftim-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px 10px;">
+
+                                        <div class="fb-page" 
+
+                                             data-href="https://www.facebook.com/ASCAP2020" 
+
+                                             data-tabs="timeline" 
+
+                                             data-width="500" 
+
+                                             data-height="400" 
+
+                                             data-small-header="false" 
+
+                                             data-adapt-container-width="true" 
+
+                                             data-hide-cover="false" 
+
+                                             data-show-facepile="true">
+
+                                            <blockquote class="fb-xfbml-parse-ignore">
+
+                                                <a href="https://www.facebook.com/ASCAP2020">ASCAP</a>
+
+                                            </blockquote>
+
+                                        </div>
+
+                                        <a href="https://www.facebook.com/ASCAP2020" target="_blank" style="margin-top: 20px;">
+
+                                            <span class="tag">Facebook-shiko më shumë</span>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <!-- SHIGJETAT -->
+
+                        <a class="left carousel-control" href="#lajmet-carousel" role="button" data-slide="prev">
+
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+
+                            <span class="sr-only">Para</span>
+
+                        </a>
+
+                        <a class="right carousel-control" href="#lajmet-carousel" role="button" data-slide="next">
+
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+
+                            <span class="sr-only">Pas</span>
+
+                        </a>
+
+
+
+                        <!-- PIKAT POSHTË -->
+
+                        <ol class="carousel-indicators">
+
+                            <li data-target="#lajmet-carousel" data-slide-to="0" class="active"></li>
+
+                            <li data-target="#lajmet-carousel" data-slide-to="1"></li>
+
+                            <li data-target="#lajmet-carousel" data-slide-to="2"></li>
+
+                        </ol>
+
+                    </div>
+
+
+
                 </div>
+
             </div>
 
-            <!-- NJOFTIME TICKER -->
-            <div class="shirit-njoftime-kontainer-madh" style="margin-top: 40px;">
-                <div class="shirit-njoftime-track">
-                    <article class="njoftim-card ticker-item">
-                        <div class="njoftim-date">12 Maj 2026</div>
-                        <div class="njoftim-content">
-                            <h3>Viti shkollor 2026</h3>
-                            <p>Sezoni i ri fillon 14 shtator.</p>
+
+
+
+
+            <!-- ========================================================= -->
+
+            <!-- 2. SHIRITI I NJOFTIMEVE POSHTË (TËRËSISHT I IZOLUAR)       -->
+
+            <!-- ========================================================= -->
+
+            <div class="row">
+
+                <div class="col-xs-12">
+
+                    
+
+                    <div class="text-center" style="margin-bottom: 15px; color: #1a2a6c; font-size: 26px; font-weight: bold;">
+
+                        Njoftime të fundit
+
+                    </div>
+
+                    
+
+                    <!-- KUTIA E BARDHË QË NUK LEJON DALJEN JASHTË -->
+
+                    <div class="shirit-njoftime-kontainer-madh">
+
+                        
+
+                        <div class="shirit-njoftime-wrapper">
+
+                            <div class="shirit-njoftime-track">
+
+                                
+
+                                <!-- SETI 1 -->
+
+                                <article class="njoftim-card ticker-item">
+
+                                    <div class="njoftim-date">12 Maj 2026</div> 
+
+                                    <div class="njoftim-content">
+
+                                        <h3>Viti shkollor 2026-2027</h3>
+
+                                        <p>Sezoni i ri shkollor fillon me 14 shtator 2026 dhe mbaron më 18 qershor 2027. Pushimet dimërore fillojnë me 24 dhjetor 2026.</p>
+
+                                        <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="njoftim-card ticker-item">
+
+                                    <div class="njoftim-date">5-7 Maj 2026</div>
+
+                                    <div class="njoftim-content">
+
+                                        <h3>Aplikimi A1 dhe A1Z</h3>
+
+                                        <p>Informojmë maturantët se procesi i aplikimit për formularët A1 dhe A1Z do të kryhet gjatë fashës orare të përcaktuar.</p>
+
+                                        <a href="Urdher A1.pdf" target="_blank"><span class="tag">Matura-shiko më shumë</span></a>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="njoftim-card ticker-item">
+
+                                    <div class="njoftim-date">Shkurt 2026</div>
+
+                                    <div class="njoftim-content">
+
+                                        <h3>Pajisja me Laptopë</h3>
+
+                                        <p>Gjimnazi Milot përfiton pajisje teknologjike (laptopë) falë kontributit të Shkollës së Drejtorëve.</p>
+
+                                        <a href="https://www.facebook.com/share/p/1GvK9qaRkK/" target="_blank"><span class="tag">Teknologji-shiko më shumë</span></a>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="njoftim-card highlight ticker-item">
+
+                                    <div class="njoftim-date">Shtator 2025</div>
+
+                                    <div class="njoftim-content">
+
+                                        <h3>Urdhëri i Përbashkët 2025-2026</h3>
+
+                                        <p>Publikohet urdhëri i përbashkët për rregulloren dhe mbarëvajtjen e sezonit të ri shkollor.</p>
+
+                                        <a href="Udhëzimi20.pdf" target="_blank"><span class="tag">Rregullore-shiko më shumë</span></a>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <!-- SETI 2 (DUBLIKIMI PËR TË LËVIZUR PA NDËRPRERJE) -->
+
+                                <article class="njoftim-card ticker-item">
+
+                                    <div class="njoftim-date">12 Maj 2026</div> 
+
+                                    <div class="njoftim-content">
+
+                                        <h3>Viti shkollor 2026-2027</h3>
+
+                                        <p>Sezoni i ri shkollor fillon me 14 shtator 2026 dhe mbaron më 18 qershor 2027. Pushimet dimërore fillojnë me 24 dhjetor 2026.</p>
+
+                                        <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="njoftim-card ticker-item">
+
+                                    <div class="njoftim-date">5-7 Maj 2026</div>
+
+                                    <div class="njoftim-content">
+
+                                        <h3>Aplikimi A1 dhe A1Z</h3>
+
+                                        <p>Informojmë maturantët se procesi i aplikimit për formularët A1 dhe A1Z do të kryhet gjatë fashës orare të përcaktuar.</p>
+
+                                        <a href="Urdher A1.pdf" target="_blank"><span class="tag">Matura-shiko më shumë</span></a>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="njoftim-card ticker-item">
+
+                                    <div class="njoftim-date">Shkurt 2026</div>
+
+                                    <div class="njoftim-content">
+
+                                        <h3>Pajisja me Laptopë</h3>
+
+                                        <p>Gjimnazi Milot përfiton pajisje teknologjike (laptopë) falë kontributit të Shkollës së Drejtorëve.</p>
+
+                                        <a href="https://www.facebook.com/share/p/1GvK9qaRkK/" target="_blank"><span class="tag">Teknologji-shiko më shumë</span></a>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="njoftim-card highlight ticker-item">
+
+                                    <div class="njoftim-date">Shtator 2025</div>
+
+                                    <div class="njoftim-content">
+
+                                        <h3>Urdhëri i Përbashkët 2025-2026</h3>
+
+                                        <p>Publikohet urdhëri i përbashkët për rregulloren dhe mbarëvajtjen e sezonit të ri shkollor.</p>
+
+                                        <a href="Udhëzimi20.pdf" target="_blank"><span class="tag">Rregullore-shiko më shumë</span></a>
+
+                                    </div>
+
+                                </article>
+
+
+
+                            </div>
+
                         </div>
-                    </article>
-                    <!-- Shto artikuj të tjerë këtu -->
+
+
+
+                    </div> <!-- Përfundon kutia e bardhë -->
+
                 </div>
+
             </div>
+
+
+
         </section>
+
     </main>
 
-    <footer style="background: #000; color: #fff; text-align: center; padding: 20px;">
-        <p>&copy; 2026 Gjimnazi Milot.</p>
+
+
+    <footer class="footer">
+
+        <p>&copy; 2026 Gjimnazi Milot. Të gjitha të drejtat të rezervuara.</p>
+
+        <p><a href="mailto:milotgjimnazi@yahoo.com">Email: milotgjimnazi@yahoo.com</a></p>
+
     </footer>
 
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
 </body>
-</html>
+
+</html> 
