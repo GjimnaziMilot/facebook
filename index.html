@@ -3,287 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gjimnazi Milot - Njoftime</title>
 
-    <title>Gjimnazi Milot - Faqja Zyrtare</title>
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="gjimnazimilot.css">
-    <link href="gjimnazimilot.css" rel="stylesheet">
     
+    <!-- Lidhja me skedarin tënd që dërgove -->
+    <link rel="stylesheet" href="njoftfb.css">
+
     <style>
-        /* Seksioni Hero - Shtrirje totale në të gjithë ekranin */
-        .hero-section {
-            margin-top: 0px !important; 
-            overflow: hidden;
-            width: 100vw; /* Merr tërë gjerësinë e ekranit */
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
+        /* ==================================================
+           RREGULLIMET PËR TË QENDËRZUAR DHE IZOLUAR ELEMENTET
+           ================================================== */
+        
+        /* Ndalon scroll-in horizontal të shfletuesit */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100%;
         }
 
-        .carousel-custom-container {
-            position: relative;
+        /* 1. KORRIGJIMI I CAROUSEL TË FACEBOOK (QENDËRZIMI) */
+        #lajmet-carousel {
             width: 100%;
-            overflow: hidden;
+            max-width: 750px; /* Hapësirë e mjaftueshme për datën (150px) dhe FB (500px) */
+            margin: 0 auto;
+            position: relative;
         }
 
-        .carousel-custom-inner {
-            display: flex;
-            width: 800%; /* 7 foto reale + 1 kopje = 800% */
-            transition: transform 0.6s ease-in-out; 
-            align-items: stretch; /* Detyron të gjithë artikujt të kenë të njëjtën lartësi */
+        /* Kur karta është aktive, qendërzohet me flexbox */
+        #lajmet-carousel .carousel-inner .item.active {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
         }
 
-        .carousel-custom-item {
-            width: 12.5%; /* Ndarja ekzakte (100 / 8) */
-            flex-shrink: 0;
-            display: flex;
+        .fb-karta-qender {
+            width: 100%;
+            max-width: 680px;
+            margin: 0 auto;
+            /* Trashëgon flex-in nga njoftfb.css, nuk e prishim */
         }
 
-        /* MBUSHJA E PLOTË E EKRANIT - MADHËSIA SA FOTOJA E PARË */
-        .carousel-custom-item img {
-            width: 100% !important;
-            height: auto !important; /* Lartësia përshtatet automatikisht */
-            object-fit: cover; /* Fotot e tjera mbushin hapësirën pa u shtrembëruar */
-            display: block;
-        }
-
-        /* Fotoja e parë (dhe kopja e saj në fund) nuk pritet dhe vendos lartësinë e slider-it */
-        .carousel-custom-inner .carousel-custom-item:first-child img,
-        .carousel-custom-inner .carousel-custom-item:last-child img {
-            object-fit: cover !important; /* Bëhet cover sipas kërkesës tënde */
-        }
-
-        /* Pikat treguese fiks pranë fotos */
-        .custom-indicators {
-            position: absolute;
-            bottom: 15px; 
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            z-index: 15;
-        }
-
-        .custom-indicators li {
-            width: 10px;
-            height: 10px;
-            margin: 5px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            border: 1px solid #fff;
-            transition: background-color 0.3s;
-        }
-
-        .custom-indicators li.active {
-            background-color: #fff;
-        }
-
-        /* Butonat anësorë */
-        .carousel-btn {
-            position: absolute;
+        /* Shigjetat e Carousel (Daljet anash) */
+        .carousel-control.left, .carousel-control.right {
+            background-image: none !important;
+            color: #1a2a6c !important;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.4);
-            color: white;
-            border: none;
-            font-size: 24px;
-            padding: 12px 18px;
-            cursor: pointer;
-            z-index: 20;
-            transition: background-color 0.3s;
-            border-radius: 3px;
-            user-select: none;
+            bottom: auto;
+            opacity: 1;
+            font-size: 35px;
+            text-shadow: none !important;
+        }
+        /* Pozicionimi i shigjetave jashtë kartës */
+        .carousel-control.left { left: -30px; }
+        .carousel-control.right { right: -30px; }
+
+        /* Pikat e Carousel (Poshtë) */
+        .carousel-indicators {
+            position: relative;
+            bottom: auto;
+            margin-top: 25px;
+            left: 0;
+            width: 100%;
+            margin-left: 0;
+        }
+        .carousel-indicators li { border-color: #1a2a6c !important; }
+        .carousel-indicators .active { background-color: #1a2a6c !important; }
+
+
+        /* 2. KORRIGJIMI I SHIRITIT LËVIZËS POSHTË (TË RRIJË BRENDA) */
+        .shirit-njoftime-kontainer-madh {
+            background-color: #ffffff;
+            border: 1px solid #e3e8ee;
+            border-radius: 12px;
+            padding: 30px 20px; /* Hapësirë brenda kutisë së bardhë */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            margin: 0 auto 30px auto;
+            width: 100%;
+            overflow: hidden !important; /* DETYRON fshehjen e kartave jashtë vijës */
+            box-sizing: border-box;
+            position: relative;
         }
 
-        .carousel-btn:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
+        .shirit-njoftime-wrapper {
+            width: 100%;
+            overflow: hidden !important; 
         }
 
-        .btn-prev {
-            left: 15px;
+        .shirit-njoftime-track {
+            display: flex;
+            width: max-content;
+            animation: levizShiritin 35s linear infinite; 
+            align-items: stretch;
         }
 
-        .btn-next {
-            right: 15px;
+        .shirit-njoftime-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Përmasat e kartave brenda shiritit */
+        .ticker-item {
+            width: 480px; /* Gjerësi fikse që të ruajë designin tënd (data majtas, tekst djathtas) */
+            margin-right: 30px;
+            flex-shrink: 0;
+            /* Nuk përdorim display:block këtu, lëmë flex-in e njoftfb.css */
+        }
+
+        @keyframes levizShiritin {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        /* Rregullim për ekranet e vogla (Mobile) */
+        @media (max-width: 768px) {
+            #lajmet-carousel { max-width: 100%; padding: 0 30px; }
+            .carousel-control.left { left: 0px; }
+            .carousel-control.right { right: 0px; }
+            .ticker-item { width: 320px; }
         }
     </style>
 </head>
+
 <body>
 
-<nav class="navbar navbar-custom" style="margin-bottom: 0px !important;">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="index.html">Gjimnazi Milot</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="njof.html">Njoftime</a></li>
-        <li><a href="matura.html">Matura Shtetërore</a></li>
-        <li><a href="Organizimi.html">Organizimi i shkollës</a></li>
-        <li><a href="aktivitete.html">Aktivitete</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <!-- Skripti i Facebook -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/sq_AL/sdk.js#xfbml=1&version=v18.0"></script>
 
-<div class="hero-section">
-  <div class="carousel-custom-container">
-    
-    <button class="carousel-btn btn-prev" onclick="butoniMajtas()">&#10094;</button>
-    <button class="carousel-btn btn-next" onclick="butoniDjathtas()">&#10095;</button>
-    
-    <ol class="custom-indicators">
-      <li onclick="shkoTeFoto(0)" class="active"></li>
-      <li onclick="shkoTeFoto(1)"></li>
-      <li onclick="shkoTeFoto(2)"></li>
-      <li onclick="shkoTeFoto(3)"></li>
-      <li onclick="shkoTeFoto(4)"></li>
-      <li onclick="shkoTeFoto(5)"></li>
-      <li onclick="shkoTeFoto(6)"></li>
-    </ol>
+    <!-- Navbar nga kodi yt -->
+    <nav class="navbar navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Gjimnazi Milot</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="njof.html">Njoftime</a></li>
+                    <li><a href="matura.html">Matura Shtetërore</a></li>
+                    <li><a href="Organizimi.html">Organizimi i shkollës</a></li>
+                    <li><a href="aktivitete.html">Aktivitete</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <div class="carousel-custom-inner" id="sliderTrack">
-      <div class="carousel-custom-item">
-        <img src="gjimnazimilotfoto.jpeg" alt="Gjimnazi Milot 1">
-      </div>
-      <div class="carousel-custom-item">
-        <img src="pic1.jpeg" alt="Gjimnazi Milot 2">
-      </div>
-      <div class="carousel-custom-item">
-        <img src="pic3.jpeg" alt="Gjimnazi Milot 3">
-      </div>
-      <div class="carousel-custom-item">
-        <img src="pic4.jpeg" alt="Gjimnazi Milot 4">
-      </div>
-      <div class="carousel-custom-item">
-        <img src="pic5.jpeg" alt="Gjimnazi Milot 5">
-      </div>
-      <div class="carousel-custom-item">
-        <img src="pic6.jpeg" alt="Gjimnazi Milot 6">
-      </div>
-      <div class="carousel-custom-item">
-        <img src="pic7.jpeg" alt="Gjimnazi Milot 7">
-      </div>
-      <div class="carousel-custom-item">
-        <img src="gjimnazimilotfoto.jpeg" alt="Gjimnazi Milot 1">
-      </div>
-    </div>
+    <main class="main-content">
+        <section class="njoftime-section" style="padding-top: 10px; background-color: transparent; box-shadow: none;">
+            
+            <div class="section-header text-center" style="margin-bottom: 50px;">
+                <h2>Informacione dhe Lajme</h2>
+                <div class="underline"></div>
+            </div>
 
-  </div>
-</div>
+            <!-- ========================================================= -->
+            <!-- 1. FACEBOOK CAROUSEL (NË QENDËR ME SHIGJETA)              -->
+            <!-- ========================================================= -->
+            <div class="row" style="margin-bottom: 60px;">
+                <div class="col-xs-12">
+                    
+                    <div class="text-center" style="margin-bottom: 25px; color: #1a2a6c; font-size: 26px; font-weight: bold;">
+                        Lajmet e fundit
+                    </div>
 
-<div class="container seksion-informacion">
-  <div class="row">
-    <div class="col-md-8">
-      <h2>Historiku i shkollës</h2>
-      <p>Viti shkollor 1971-1972 ka hyrë në historinë e kësaj shkolle si një vit tepër i veçantë, sepse për herë të parë u hap Shkolla e Mesme pa shkëputje nga puna, dega Agronomi.
-Në vitin mësimor 1986-1987 u vu në punë ndërtesa e re e shkollës, sot Gjimnazi.  Deri në këtë periudhë funksiononte Shkolla e Mesme e Bashkuar (8-vjeçare +bujqësore 4 vjeçare me/pa shkëputje nga puna).   
-Viti mësimor 1987-1988 shënon dhe fillimin e arsimit të mesëm të përgjithshëm në Milot.
-</p>
-    </div>
-    <div class="col-md-4">
-      <div class="panel-lajme">
-        <h4>Aktivitetet e Fundit</h4>
-        <ul>
-            <li><a href="https://www.facebook.com/share/v/1GncvenXGU/" target="_blank">Festivali i Shkencave</a></li>
-            <li><a href="olimpiada.html">Olimpiadat</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+                    <!-- CAROUSEL -->
+                    <div id="lajmet-carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                        <div class="carousel-inner" role="listbox">
+                            
+                            <!-- FAQJA 1: ZVAP -->
+                            <div class="item active">
+                                <article class="njoftim-card fb-karta-qender">
+                                    <!-- Data në të majtë, siç e ke në CSS -->
+                                    <div class="njoftim-date">ZVAP Kurbin</div>
+                                    <!-- Përmbajtja në të djathtë -->
+                                    <div class="njoftim-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px 10px;">
+                                        <div class="fb-page" 
+                                             data-href="https://www.facebook.com/profile.php?id=100064178460927" 
+                                             data-tabs="timeline" 
+                                             data-width="500" 
+                                             data-height="400" 
+                                             data-small-header="false" 
+                                             data-adapt-container-width="true" 
+                                             data-hide-cover="false" 
+                                             data-show-facepile="true">
+                                            <blockquote class="fb-xfbml-parse-ignore">
+                                                <a href="https://www.facebook.com/profile.php?id=100064178460927">Zyra Vendore e Arsimit Parauniversitar Kurbin</a>
+                                            </blockquote>
+                                        </div>
+                                        <a href="https://www.facebook.com/profile.php?id=100064178460927" target="_blank" style="margin-top: 20px;">
+                                            <span class="tag">Facebook-shiko më shumë</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
 
-<footer class="footer-serioz text-center">
-  <p>2026 Gjimnazi Milot. Të gjitha të drejtat e rezervuara.</p>
- <a href="mailto:milotgjimnazi@yahoo.com">Email: milotgjimnazi@yahoo.com</a>
-</footer>
+                            <!-- FAQJA 2: AKAP -->
+                            <div class="item">
+                                <article class="njoftim-card fb-karta-qender">
+                                    <div class="njoftim-date">AKAP</div>
+                                    <div class="njoftim-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px 10px;">
+                                        <div class="fb-page" 
+                                             data-href="https://www.facebook.com/arsimiparauniversitar" 
+                                             data-tabs="timeline" 
+                                             data-width="500" 
+                                             data-height="400" 
+                                             data-small-header="false" 
+                                             data-adapt-container-width="true" 
+                                             data-hide-cover="false" 
+                                             data-show-facepile="true">
+                                            <blockquote class="fb-xfbml-parse-ignore">
+                                                <a href="https://www.facebook.com/arsimiparauniversitar">Agjencia Kombëtare e Arsimit Parauniversitar</a>
+                                            </blockquote>
+                                        </div>
+                                        <a href="https://www.facebook.com/arsimiparauniversitar" target="_blank" style="margin-top: 20px;">
+                                            <span class="tag">Facebook-shiko më shumë</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                            <!-- FAQJA 3: ASCAP -->
+                            <div class="item">
+                                <article class="njoftim-card fb-karta-qender">
+                                    <div class="njoftim-date">ASCAP</div>
+                                    <div class="njoftim-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px 10px;">
+                                        <div class="fb-page" 
+                                             data-href="https://www.facebook.com/ASCAP2020" 
+                                             data-tabs="timeline" 
+                                             data-width="500" 
+                                             data-height="400" 
+                                             data-small-header="false" 
+                                             data-adapt-container-width="true" 
+                                             data-hide-cover="false" 
+                                             data-show-facepile="true">
+                                            <blockquote class="fb-xfbml-parse-ignore">
+                                                <a href="https://www.facebook.com/ASCAP2020">ASCAP</a>
+                                            </blockquote>
+                                        </div>
+                                        <a href="https://www.facebook.com/ASCAP2020" target="_blank" style="margin-top: 20px;">
+                                            <span class="tag">Facebook-shiko më shumë</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
 
-<script>
-  let indeksiAktual = 0;
-  const fototReale = 7; 
-  const track = document.getElementById('sliderTrack');
-  const pikat = document.querySelectorAll('.custom-indicators li');
-  let kohezgjatja = 3000;
+                        </div>
 
-  function rrethekoKaruselin() {
-    track.style.transform = `translateX(-${indeksiAktual * 12.5}%)`;
-    
-    pikat.forEach((pika, i) => {
-      if(i === (indeksiAktual % fototReale)) {
-        pika.classList.add('active');
-      } else {
-        pika.classList.remove('active');
-      }
-    });
-  }
+                        <!-- SHIGJETAT -->
+                        <a class="left carousel-control" href="#lajmet-carousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Para</span>
+                        </a>
+                        <a class="right carousel-control" href="#lajmet-carousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Pas</span>
+                        </a>
 
-  function levizAutomatikisht() {
-    indeksiAktual++;
-    track.style.transition = "transform 0.6s ease-in-out";
-    rrethekoKaruselin();
-    
-    if (indeksiAktual === fototReale) {
-      setTimeout(() => {
-        track.style.transition = "none";
-        indeksiAktual = 0;
-        rrethekoKaruselin();
-      }, 600);
-    }
-  }
+                        <!-- PIKAT POSHTË -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#lajmet-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#lajmet-carousel" data-slide-to="1"></li>
+                            <li data-target="#lajmet-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
 
-  function butoniDjathtas() {
-    clearInterval(intervali);
-    levizAutomatikisht();
-    intervali = setInterval(levizAutomatikisht, kohezgjatja);
-  }
+                </div>
+            </div>
 
-  function butoniMajtas() {
-    clearInterval(intervali);
-    track.style.transition = "transform 0.6s ease-in-out";
-    
-    if (indeksiAktual === 0) {
-      track.style.transition = "none";
-      indeksiAktual = fototReale;
-      rrethekoKaruselin();
-      
-      setTimeout(() => {
-        track.style.transition = "transform 0.6s ease-in-out";
-        indeksiAktual = fototReale - 1;
-        rrethekoKaruselin();
-      }, 20);
-    } else {
-      indeksiAktual--;
-      rrethekoKaruselin();
-    }
-    intervali = setInterval(levizAutomatikisht, kohezgjatja);
-  }
 
-  function shkoTeFoto(nr) {
-    clearInterval(intervali);
-    track.style.transition = "transform 0.6s ease-in-out";
-    indeksiAktual = nr;
-    rrethekoKaruselin();
-    intervali = setInterval(levizAutomatikisht, kohezgjatja);
-  }
+            <!-- ========================================================= -->
+            <!-- 2. SHIRITI I NJOFTIMEVE POSHTË (TËRËSISHT I IZOLUAR)       -->
+            <!-- ========================================================= -->
+            <div class="row">
+                <div class="col-xs-12">
+                    
+                    <div class="text-center" style="margin-bottom: 15px; color: #1a2a6c; font-size: 26px; font-weight: bold;">
+                        Njoftime të fundit
+                    </div>
+                    
+                    <!-- KUTIA E BARDHË QË NUK LEJON DALJEN JASHTË -->
+                    <div class="shirit-njoftime-kontainer-madh">
+                        
+                        <div class="shirit-njoftime-wrapper">
+                            <div class="shirit-njoftime-track">
+                                
+                                <!-- SETI 1 -->
+                                <article class="njoftim-card ticker-item">
+                                    <div class="njoftim-date">12 Maj 2026</div> 
+                                    <div class="njoftim-content">
+                                        <h3>Viti shkollor 2026-2027</h3>
+                                        <p>Sezoni i ri shkollor fillon me 14 shtator 2026 dhe mbaron më 18 qershor 2027. Pushimet dimërore fillojnë me 24 dhjetor 2026.</p>
+                                        <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
+                                    </div>
+                                </article>
 
-  let intervali = setInterval(levizAutomatikisht, kohezgjatja);
-</script>
+                                <article class="njoftim-card ticker-item">
+                                    <div class="njoftim-date">5-7 Maj 2026</div>
+                                    <div class="njoftim-content">
+                                        <h3>Aplikimi A1 dhe A1Z</h3>
+                                        <p>Informojmë maturantët se procesi i aplikimit për formularët A1 dhe A1Z do të kryhet gjatë fashës orare të përcaktuar.</p>
+                                        <a href="Urdher A1.pdf" target="_blank"><span class="tag">Matura-shiko më shumë</span></a>
+                                    </div>
+                                </article>
+
+                                <article class="njoftim-card ticker-item">
+                                    <div class="njoftim-date">Shkurt 2026</div>
+                                    <div class="njoftim-content">
+                                        <h3>Pajisja me Laptopë</h3>
+                                        <p>Gjimnazi Milot përfiton pajisje teknologjike (laptopë) falë kontributit të Shkollës së Drejtorëve.</p>
+                                        <a href="https://www.facebook.com/share/p/1GvK9qaRkK/" target="_blank"><span class="tag">Teknologji-shiko më shumë</span></a>
+                                    </div>
+                                </article>
+
+                                <article class="njoftim-card highlight ticker-item">
+                                    <div class="njoftim-date">Shtator 2025</div>
+                                    <div class="njoftim-content">
+                                        <h3>Urdhëri i Përbashkët 2025-2026</h3>
+                                        <p>Publikohet urdhëri i përbashkët për rregulloren dhe mbarëvajtjen e sezonit të ri shkollor.</p>
+                                        <a href="Udhëzimi20.pdf" target="_blank"><span class="tag">Rregullore-shiko më shumë</span></a>
+                                    </div>
+                                </article>
+
+                                <!-- SETI 2 (DUBLIKIMI PËR TË LËVIZUR PA NDËRPRERJE) -->
+                                <article class="njoftim-card ticker-item">
+                                    <div class="njoftim-date">12 Maj 2026</div> 
+                                    <div class="njoftim-content">
+                                        <h3>Viti shkollor 2026-2027</h3>
+                                        <p>Sezoni i ri shkollor fillon me 14 shtator 2026 dhe mbaron më 18 qershor 2027. Pushimet dimërore fillojnë me 24 dhjetor 2026.</p>
+                                        <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
+                                    </div>
+                                </article>
+
+                                <article class="njoftim-card ticker-item">
+                                    <div class="njoftim-date">5-7 Maj 2026</div>
+                                    <div class="njoftim-content">
+                                        <h3>Aplikimi A1 dhe A1Z</h3>
+                                        <p>Informojmë maturantët se procesi i aplikimit për formularët A1 dhe A1Z do të kryhet gjatë fashës orare të përcaktuar.</p>
+                                        <a href="Urdher A1.pdf" target="_blank"><span class="tag">Matura-shiko më shumë</span></a>
+                                    </div>
+                                </article>
+
+                                <article class="njoftim-card ticker-item">
+                                    <div class="njoftim-date">Shkurt 2026</div>
+                                    <div class="njoftim-content">
+                                        <h3>Pajisja me Laptopë</h3>
+                                        <p>Gjimnazi Milot përfiton pajisje teknologjike (laptopë) falë kontributit të Shkollës së Drejtorëve.</p>
+                                        <a href="https://www.facebook.com/share/p/1GvK9qaRkK/" target="_blank"><span class="tag">Teknologji-shiko më shumë</span></a>
+                                    </div>
+                                </article>
+
+                                <article class="njoftim-card highlight ticker-item">
+                                    <div class="njoftim-date">Shtator 2025</div>
+                                    <div class="njoftim-content">
+                                        <h3>Urdhëri i Përbashkët 2025-2026</h3>
+                                        <p>Publikohet urdhëri i përbashkët për rregulloren dhe mbarëvajtjen e sezonit të ri shkollor.</p>
+                                        <a href="Udhëzimi20.pdf" target="_blank"><span class="tag">Rregullore-shiko më shumë</span></a>
+                                    </div>
+                                </article>
+
+                            </div>
+                        </div>
+
+                    </div> <!-- Përfundon kutia e bardhë -->
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Gjimnazi Milot. Të gjitha të drejtat të rezervuara.</p>
+        <p><a href="mailto:milotgjimnazi@yahoo.com">Email: milotgjimnazi@yahoo.com</a></p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>
