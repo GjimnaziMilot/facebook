@@ -12,12 +12,12 @@
 
     <style>
         /* ========================================================= */
-        /* STILIMI PËR CAROUSEL-IN E FACEBOOK (JUICER)               */
+        /* STILIMI PËR CAROUSEL-IN E FACEBOOK (VETËM ME PIKA)        */
         /* ========================================================= */
         .fb-carousel-container {
             max-width: 1000px; 
             margin: 0 auto;
-            padding: 0 45px; 
+            padding: 0; /* Hoqëm hapësirën e shigjetave pasi nuk duhen më */
             position: relative;
         }
 
@@ -30,33 +30,21 @@
             background: #fff;
         }
 
-        /* Stilimi i shigjetave të kontrollit majtas/djathtas */
-        .fb-carousel-container .carousel-control {
-            width: 40px;
-            height: 40px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            background: #1a2a6c;
-            opacity: 0.8;
-            color: #fff;
-            line-height: 38px;
-        }
-        .fb-carousel-container .carousel-control:hover {
-            opacity: 1;
-            background: #d9534f; 
-        }
-        .fb-carousel-container .carousel-control.left { left: 0; background-image: none; }
-        .fb-carousel-container .carousel-control.right { right: 0; background-image: none; }
-
-        /* Pikat treguese poshtë (Indicators) */
+        /* Pikat treguese poshtë (Indicators) - Të bëra më të dukshme */
         .fb-carousel-container .carousel-indicators {
-            bottom: -30px;
+            bottom: -35px;
         }
         .fb-carousel-container .carousel-indicators li {
-            border-color: #1a2a6c;
+            border: 2px solid #1a2a6c;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            cursor: pointer;
         }
         .fb-carousel-container .carousel-indicators .active {
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
             background-color: #1a2a6c;
         }
 
@@ -120,7 +108,6 @@
             margin-bottom: 10px;
         }
 
-        /* Butoni normal */
         .njoftim-content .tag {
             font-size: 11px;
             background: #1a2a6c;
@@ -132,7 +119,6 @@
             transition: background 0.1s ease;
         }
 
-        /* KUR KLIKOHET (ACTIVE EFECT) - BËHET I KUQ */
         .njoftim-content a:active .tag, 
         .njoftim-content .tag:active {
             background: #d9534f !important;
@@ -150,10 +136,12 @@
         @media (max-width: 767px) {
             .fb-carousel-container {
                 max-width: 100%;
-                padding: 0 30px;
+                padding: 0 5px !important; 
             }
+
             .juicer-iframe-wrapper iframe {
-                height: 450px;
+                height: 500px; 
+                border-radius: 4px;
             }
 
             .njoftim-card {
@@ -205,9 +193,9 @@
             </div>
 
             <!-- ========================================================= -->
-            <!-- 1. CAROUSEL ME AUTOPLAY 3 SEKONDA (data-interval="3000")   -->
+            <!-- 1. CAROUSEL AUTOMATIK (VETËM ME PIKA POSHTË)               -->
             <!-- ========================================================= -->
-            <div class="row" style="margin-bottom: 70px;">
+            <div class="row" style="margin-bottom: 75px;">
                 <div class="col-xs-12">
                     
                     <div class="text-center" style="margin-bottom: 25px; color: #1a2a6c; font-size: 22px; font-weight: bold;">
@@ -215,16 +203,15 @@
                     </div>
 
                     <div class="fb-carousel-container">
-                        <!-- Ndryshuar data-interval në 3000 për lëvizje çdo 3 sekonda -->
                         <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                             
-                            <!-- Pikat Treguese (Indicators) -->
+                            <!-- Vetëm 2 Pikat Treguese në fund -->
                             <ol class="carousel-indicators">
                                 <li data-target="#facebookJuicerCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#facebookJuicerCarousel" data-slide-to="1"></li>
                             </ol>
 
-                            <!-- Sllajdet e Carousel -->
+                            <!-- Sllajdet (Iframes) -->
                             <div class="carousel-inner" role="listbox">
                                 
                                 <!-- Sllajdi 1: Arsimi Parauniversitar -->
@@ -253,15 +240,7 @@
 
                             </div>
 
-                            <!-- Butonat Majtas / Djathtas -->
-                            <a class="left carousel-control" href="#facebookJuicerCarousel" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Paraardhës</span>
-                            </a>
-                            <a class="right carousel-control" href="#facebookJuicerCarousel" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Pasardhës</span>
-                            </a>
+                            <!-- SHIGJETAT U PROGRESUAN DHE U SHTYPNË NGA KODI -->
 
                         </div>
                     </div>
