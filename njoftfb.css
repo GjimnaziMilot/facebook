@@ -24,6 +24,8 @@ body {
     width: 100%;
 }
 
+/* Container */
+
 .navbar-custom .container {
     max-width: 1200px;
     margin: auto;
@@ -31,11 +33,15 @@ body {
     width: 100%;
 }
 
+/* Logo */
+
 .navbar-custom .navbar-brand {
     color: #ffffff !important;
     font-size: 20px;
     font-weight: 600;
 }
+
+/* Linket */
 
 .navbar-custom .navbar-nav > li > a {
     color: #ffffff !important;
@@ -45,20 +51,37 @@ body {
     transition: 0.3s;
 }
 
+/* Hover */
+
 .navbar-custom .navbar-nav > li > a:hover {
     background-color: #243b55 !important;
     color: #ffffff !important;
     border-radius: 4px;
 }
 
-.navbar-custom .navbar-nav > .active > a {
+/* Linku aktiv */
+
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover {
     background-color: #243b55 !important;
     color: #ffffff !important;
     border-radius: 4px;
 }
 
+/* Hamburger menu */
+
+.navbar-custom .navbar-toggle {
+    border: none;
+    background: transparent !important;
+    margin-top: 10px;
+}
+
+.navbar-custom .icon-bar {
+    background-color: #ffffff !important;
+}
+
 /* =========================
-   NJOFTIMET DHE STRUKTURA
+   NJOFTIMET
 ========================= */
 
 .main-content {
@@ -67,12 +90,16 @@ body {
     margin: 40px auto;
 }
 
+/* Seksioni */
+
 .njoftime-section {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
+
+/* Titulli */
 
 .section-header {
     text-align: center;
@@ -86,6 +113,8 @@ body {
     margin-bottom: 10px;
 }
 
+/* Vija */
+
 .underline {
     width: 60px;
     height: 4px;
@@ -94,7 +123,16 @@ body {
     border-radius: 5px;
 }
 
-/* KARTAT */
+/* Container kartash */
+
+.njoftime-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Kartat */
+
 .njoftim-card {
     display: flex;
     background-color: #ffffff;
@@ -103,13 +141,22 @@ body {
     border-radius: 8px;
     overflow: hidden;
     transition: 0.3s;
-    margin-bottom: 20px;
 }
+
+/* Hover */
 
 .njoftim-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
+
+/* Highlight */
+
+.njoftim-card.highlight {
+    border-left-color: #ffca28;
+}
+
+/* Data */
 
 .njoftim-date {
     width: 150px;
@@ -124,40 +171,31 @@ body {
     color: #1a2a6c;
 }
 
+/* Përmbajtja */
+
 .njoftim-content {
     flex: 1;
     padding: 25px;
 }
 
-/* =========================================================
-   RREGULLIMET PËR QENDËRZIMIN E FACEBOOK-UT (SHTESË)
-   ========================================================= */
+/* Titulli i kartës */
 
-.fb-container-wrapper {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    padding: 20px 0 !important;
+.njoftim-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #1a2a6c;
 }
 
-/* Sigurojmë që iframe-i të mos ndikohet nga flex-i i kartës */
-.fb-page {
-    margin: 0 auto !important;
-    display: block !important;
+/* Teksti */
+
+.njoftim-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
 }
 
-/* =========================
-   FOOTER DHE ELEMENTE TË TJERA
-========================= */
-
-.footer {
-    background-color: #000000;
-    color: #ffffff;
-    text-align: center;
-    padding: 35px 20px;
-    margin-top: 50px;
-}
+/* Tag */
 
 .tag {
     display: inline-block;
@@ -168,24 +206,82 @@ body {
     border-radius: 20px;
     font-size: 11px;
     font-weight: bold;
-    text-decoration: none;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 50px;
+}
+
+.footer p {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+.njoftim-content a {
+    text-decoration: none;
+    color: #1a2a6c;
+}
+/* kjo është për ngjyrën e kuqe kur klikojmë mbi të */
 .tag:hover {
     background-color: red;
     color: white;
 }
-
+/*kjo është për të hqur outline-in (vija e zezë border tek kutia viti 
+shkollor-shiko më shumë)*/
+a,
+a:focus,
+a:active {
+    outline: none;
+}
 /* =========================
    RESPONSIVE
 ========================= */
 
 @media (max-width: 768px) {
+
+    .navbar-custom .navbar-brand {
+        font-size: 22px;
+    }
+
+    .navbar-custom .navbar-nav > li > a {
+        font-size: 14px;
+    }
+
+    .section-header h2 {
+        font-size: 26px;
+    }
+
     .njoftim-card {
         flex-direction: column;
     }
+
     .njoftim-date {
         width: 100%;
         border-bottom: 1px solid #e5e5e5;
+    }
+
+    .njoftim-content h3 {
+        font-size: 20px;
+    }
+
+    .njoftim-content p {
+        font-size: 14px;
     }
 }
