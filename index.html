@@ -12,67 +12,56 @@
 
     <style>
         /* ========================================================= */
-        /* 1. CAROUSEL I FACEBOOK ME FOTO                            */
+        /* STILIMI PËR CAROUSEL-IN E FACEBOOK (JUICER)               */
         /* ========================================================= */
         .fb-carousel-container {
-            max-width: 500px;
+            max-width: 1000px; 
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 45px; 
+            position: relative;
         }
 
-        .fb-carousel-card {
-            background: #fff;
+        .juicer-iframe-wrapper iframe {
+            width: 100%;
+            height: 600px; 
+            border: 1px solid #eee;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            overflow: hidden;
-            margin: 10px auto;
-            border: 1px solid #eee;
-            text-align: left;
+            background: #fff;
         }
 
-        .fb-card-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background-color: #f0f0f0;
+        /* Stilimi i shigjetave të kontrollit majtas/djathtas */
+        .fb-carousel-container .carousel-control {
+            width: 40px;
+            height: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            background: #1a2a6c;
+            opacity: 0.8;
+            color: #fff;
+            line-height: 38px;
         }
+        .fb-carousel-container .carousel-control:hover {
+            opacity: 1;
+            background: #d9534f; 
+        }
+        .fb-carousel-container .carousel-control.left { left: 0; background-image: none; }
+        .fb-carousel-container .carousel-control.right { right: 0; background-image: none; }
 
-        .fb-card-body {
-            padding: 15px;
+        /* Pikat treguese poshtë (Indicators) */
+        .fb-carousel-container .carousel-indicators {
+            bottom: -30px;
         }
-        
-        .fb-carousel-card h3 {
-            color: #1a2a6c;
-            margin-top: 5px;
-            margin-bottom: 8px;
-            font-weight: bold;
-            font-size: 16px;
+        .fb-carousel-container .carousel-indicators li {
+            border-color: #1a2a6c;
         }
-        
-        .fb-carousel-card p {
-            font-size: 13px;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .fb-carousel-card .btn-facebook {
+        .fb-carousel-container .carousel-indicators .active {
             background-color: #1a2a6c;
-            color: white;
-            font-size: 12px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .fb-carousel-card .btn-facebook:hover {
-            background-color: #131e4e;
-            color: white;
         }
 
         /* ========================================================= */
-        /* 2. SHIRITI LËVIZËS ME STILIN TËND TË VJETËR TË KARTAVE     */
+        /* 2. SHIRITI LËVIZËS ME STILIN TËND TË KARTAVE              */
         /* ========================================================= */
         .shirit-njoftime-kontainer-madh {
             width: 100%;
@@ -131,6 +120,7 @@
             margin-bottom: 10px;
         }
 
+        /* Butoni normal */
         .njoftim-content .tag {
             font-size: 11px;
             background: #1a2a6c;
@@ -139,6 +129,14 @@
             border-radius: 3px;
             display: inline-block;
             text-decoration: none;
+            transition: background 0.1s ease;
+        }
+
+        /* KUR KLIKOHET (ACTIVE EFECT) - BËHET I KUQ */
+        .njoftim-content a:active .tag, 
+        .njoftim-content .tag:active {
+            background: #d9534f !important;
+            color: white !important;
         }
 
         @keyframes rrjedhshmeriNjoftimesh {
@@ -152,18 +150,10 @@
         @media (max-width: 767px) {
             .fb-carousel-container {
                 max-width: 100%;
+                padding: 0 30px;
             }
-            .fb-carousel-card {
-                margin: 5px;
-            }
-            .fb-card-img {
-                height: 180px;
-            }
-            .carousel-control {
-                display: none !important;
-            }
-            .carousel-indicators {
-                bottom: -20px !important;
+            .juicer-iframe-wrapper iframe {
+                height: 450px;
             }
 
             .njoftim-card {
@@ -215,63 +205,64 @@
             </div>
 
             <!-- ========================================================= -->
-            <!-- 1. CAROUSEL I FACEBOOK ME FOTO (ZVAP KURBIN & ASCAP)       -->
+            <!-- 1. CAROUSEL ME AUTOPLAY 3 SEKONDA (data-interval="3000")   -->
             <!-- ========================================================= -->
-            <div class="row" style="margin-bottom: 50px;">
+            <div class="row" style="margin-bottom: 70px;">
                 <div class="col-xs-12">
                     
-                    <div class="text-center" style="margin-bottom: 20px; color: #1a2a6c; font-size: 22px; font-weight: bold;">
+                    <div class="text-center" style="margin-bottom: 25px; color: #1a2a6c; font-size: 22px; font-weight: bold;">
                         Lajmet e fundit nga Facebook
                     </div>
 
                     <div class="fb-carousel-container">
-                        <div id="facebook-carousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="hover">
+                        <!-- Ndryshuar data-interval në 3000 për lëvizje çdo 3 sekonda -->
+                        <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                             
+                            <!-- Pikat Treguese (Indicators) -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#facebookJuicerCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#facebookJuicerCarousel" data-slide-to="1"></li>
+                            </ol>
+
+                            <!-- Sllajdet e Carousel -->
                             <div class="carousel-inner" role="listbox">
                                 
-                                <!-- POSTIMI 1: ZVAP KURBIN -->
+                                <!-- Sllajdi 1: Arsimi Parauniversitar -->
                                 <div class="item active">
-                                    <div class="fb-carousel-card">
-                                        <img src="foto1.jpg" alt="ZVAP Kurbin" class="fb-card-img" onerror="this.src='https://via.placeholder.com/500x220?text=ZVAP+Kurbin'">
-                                        <div class="fb-card-body">
-                                            <span class="label" style="background-color: #1a2a6c;">ZVAP Kurbin</span>
-                                            <h3>Njoftim për kualifikimet</h3>
-                                            <p>Zyra Vendore e Arsimit Parauniversitar Kurbin njofton mësuesit për datat e reja të kualifikimit profesional dhe sesionet e trajnimit mbarëkombëtar.</p>
-                                            <a href="https://www.facebook.com/profile.php?id=100064178460927" target="_blank" class="btn btn-facebook">Lexo në Facebook</a>
-                                        </div>
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: Arsimi Parauniversitar</div>
+                                    <div class="juicer-iframe-wrapper">
+                                        <iframe 
+                                            src="https://www.juicer.io/api/feeds/arsimiparauniversitar/iframe" 
+                                            frameborder="0" 
+                                            title="arsimiparauniversitar - Juicer social media feed">
+                                        </iframe>
                                     </div>
                                 </div>
 
-                                <!-- POSTIMI 2: ASCAP / AKAP -->
+                                <!-- Sllajdi 2: ASCAP 2020 -->
                                 <div class="item">
-                                    <div class="fb-carousel-card">
-                                        <img src="foto2.jpg" alt="ASCAP" class="fb-card-img" onerror="this.src='https://via.placeholder.com/500x220?text=ASCAP+Matura'">
-                                        <div class="fb-card-body">
-                                            <span class="label" style="background-color: #1a2a6c;">ASCAP</span>
-                                            <h3>Rregullorja e Maturës</h3>
-                                            <p>Agjencia Kombëtare e Arsimit Parauniversitar ka publikuar udhëzuesin e plotë mbi menaxhimin dhe administrimin e provimeve kombëtare.</p>
-                                            <a href="https://www.facebook.com/arsimiparauniversitar" target="_blank" class="btn btn-facebook">Lexo në Facebook</a>
-                                        </div>
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP 2020</div>
+                                    <div class="juicer-iframe-wrapper">
+                                        <iframe 
+                                            src="https://www.juicer.io/api/feeds/ascap2020/iframe" 
+                                            frameborder="0" 
+                                            title="ASCAP2020 - Juicer social media feed">
+                                        </iframe>
                                     </div>
                                 </div>
 
                             </div>
 
-                            <!-- SHIGJETAT -->
-                            <a class="left carousel-control" href="#facebook-carousel" role="button" data-slide="prev" style="background: none; color: #1a2a6c; width: 5%;">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="position: absolute; top: 50%; left: -25px;"></span>
-                                <span class="sr-only">Para</span>
+                            <!-- Butonat Majtas / Djathtas -->
+                            <a class="left carousel-control" href="#facebookJuicerCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Paraardhës</span>
                             </a>
-                            <a class="right carousel-control" href="#facebook-carousel" role="button" data-slide="next" style="background: none; color: #1a2a6c; width: 5%;">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="position: absolute; top: 50%; right: -25px;"></span>
-                                <span class="sr-only">Pas</span>
+                            <a class="right carousel-control" href="#facebookJuicerCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Pasardhës</span>
                             </a>
 
-                            <!-- PIKAT POSHTË -->
-                            <ol class="carousel-indicators" style="bottom: -25px;">
-                                <li data-target="#facebook-carousel" data-slide-to="0" class="active" style="border-color: #1a2a6c; background-color: #1a2a6c;"></li>
-                                <li data-target="#facebook-carousel" data-slide-to="1" style="border-color: #1a2a6c;"></li>
-                            </ol>
                         </div>
                     </div>
 
@@ -280,7 +271,7 @@
 
 
             <!-- ========================================================= -->
-            <!-- 2. SHIRITI LËVIZËS I NJOFTIMEVE (STILI ORIGJINAL I VJETËR)-->
+            <!-- 2. SHIRITI LËVIZËS I NJOFTIMEVE                            -->
             <!-- ========================================================= -->
             <div class="row">
                 <div class="col-xs-12">
@@ -321,7 +312,7 @@
                                     </div>
                                 </article>
 
-                                <!-- SETI 2 (DUBLIKIMI PËR LËVIZJE AUTOMATIKE PA NDALESË) -->
+                                <!-- SETI 2 -->
                                 <article class="njoftim-card">
                                     <div class="njoftim-date">12 Maj 2026</div> 
                                     <div class="njoftim-content">
