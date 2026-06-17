@@ -16,67 +16,28 @@
             animation-play-state: paused !important;
             -webkit-animation-play-state: paused !important;
         }
-        
-        /* STILIMI I RI DHE COMPACT I KARTAVE TË FACEBOOK */
-        .fb-carousel-card {
+
+        /* KONTENEJRI QË E BËN IFRAME-IN E JUICER TË PËRSHTATSHËM PËR CELULAR */
+        .juicer-iframe-wrapper {
+            width: 100%;
+            max-width: 900px; /* Gjerësia maksimale në kompjuter */
+            margin: 0 auto;
             background: #fff;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            padding: 20px; /* Më e mbledhur */
-            margin: 10px auto;
-            max-width: 550px; /* Pak më e ngushtë */
-            border-left: 5px solid #1a2a6c;
-            text-align: left; /* Teksti i rreshtuar më pastër */
-        }
-        
-        .fb-carousel-card h3 {
-            color: #1a2a6c;
-            margin-top: 8px;
-            margin-bottom: 10px;
-            font-weight: bold;
-            font-size: 18px; /* Madhësi më kompakte */
-        }
-        
-        .fb-carousel-card p {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 10px;
         }
 
-        .fb-carousel-card .btn-facebook {
-            background-color: #1a2a6c;
-            color: white;
-            font-size: 13px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: 0.2s;
+        .juicer-iframe-wrapper iframe {
+            width: 100% !important; /* Detyron iFrame të rrijë brenda ekranit të celularit */
+            height: 700px; /* Lartësia e kutisë së lajmeve */
+            border: none;
         }
 
-        .fb-carousel-card .btn-facebook:hover {
-            background-color: #131e4e;
-            color: white;
-        }
-
-        /* PËRSHTATJA SPECIFIKE PËR CELULAR (RESPONSIVE) */
         @media (max-width: 767px) {
-            .fb-carousel-card {
-                margin: 10px 15px; /* Lë pak hapësirë anash në celular */
-                padding: 15px;
-            }
-            .fb-carousel-card h3 {
-                font-size: 16px;
-            }
-            .fb-carousel-card p {
-                font-size: 13px;
-            }
-            /* Fshehim shigjetat e mëdha në celular që të mos bllokojnë ekranin */
-            .carousel-control {
-                display: none !important;
-            }
-            /* Pozicionojmë pikat më mirë */
-            .carousel-indicators {
-                bottom: -20px !important;
+            .juicer-iframe-wrapper iframe {
+                height: 550px; /* Pak më e shkurtër në celular që të jetë më kompakte */
             }
         }
     </style>
@@ -116,67 +77,22 @@
             </div>
 
             <!-- ========================================================= -->
-            <!-- 1. CAROUSEL KOMPAKT (LËVIZ ÇDO 3S, NDALON NË HOVER)       -->
+            <!-- 1. SEKSIONI I LAJMEVE NGA FACEBOOK (JUICER IFRAME)        -->
             <!-- ========================================================= -->
             <div class="row" style="margin-bottom: 50px;">
                 <div class="col-xs-12">
                     
                     <div class="text-center" style="margin-bottom: 20px; color: #1a2a6c; font-size: 22px; font-weight: bold;">
-                        Lajmet e fundit
+                        Lajmet e fundit nga Facebook
                     </div>
 
-                    <div id="lajmet-carousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="hover">
-                        
-                        <div class="carousel-inner" role="listbox">
-                            
-                            <!-- LAJMI 1 -->
-                            <div class="item active">
-                                <div class="fb-carousel-card">
-                                    <span class="label" style="background-color: #1a2a6c; padding: 4px 8px;">Gjimnazi Milot</span>
-                                    <h3>Shkolla Verore 2026</h3>
-                                    <p>Kemi filluar aktivitetet tona për Shkollën Verore 2026! Bashkëpunim, argëtim dhe edukim për të gjithë nxënësit tanë gjatë këtyre ditëve të nxehta.</p>
-                                    <a href="https://www.facebook.com/arsimiparauniversitar" target="_blank" class="btn btn-facebook">Lexo në Facebook</a>
-                                </div>
-                            </div>
-
-                            <!-- LAJMI 2 -->
-                            <div class="item">
-                                <div class="fb-carousel-card">
-                                    <span class="label" style="background-color: #1a2a6c; padding: 4px 8px;">ZVAP Kurbin</span>
-                                    <h3>Njoftim për kualifikimet</h3>
-                                    <p>Zyra Vendore e Arsimit Parauniversitar Kurbin njofton mësuesit për datat e reja të kualifikimit profesional dhe sesionet e trajnimit mbarëkombëtar.</p>
-                                    <a href="https://www.facebook.com/profile.php?id=100064178460927" target="_blank" class="btn btn-facebook">Lexo në Facebook</a>
-                                </div>
-                            </div>
-
-                            <!-- LAJMI 3 -->
-                            <div class="item">
-                                <div class="fb-carousel-card">
-                                    <span class="label" style="background-color: #1a2a6c; padding: 4px 8px;">AKAP</span>
-                                    <h3>Rregullorja e Maturës</h3>
-                                    <p>Agjencia Kombëtare e Arsimit Parauniversitar ka publikuar udhëzuesin e plotë mbi menaxhimin dhe administrimin e provimeve kombëtare.</p>
-                                    <a href="https://www.facebook.com/arsimiparauniversitar" target="_blank" class="btn btn-facebook">Lexo në Facebook</a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- SHIGJETAT (Fshihen automatikisht në celular nëpërmjet CSS) -->
-                        <a class="left carousel-control" href="#lajmet-carousel" role="button" data-slide="prev" style="background: none; color: #1a2a6c; width: 5%;">
-                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="position: absolute; top: 50%; left: 0;"></span>
-                            <span class="sr-only">Para</span>
-                        </a>
-                        <a class="right carousel-control" href="#lajmet-carousel" role="button" data-slide="next" style="background: none; color: #1a2a6c; width: 5%;">
-                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="position: absolute; top: 50%; right: 0;"></span>
-                            <span class="sr-only">Pas</span>
-                        </a>
-
-                        <!-- PIKAT POSHTË -->
-                        <ol class="carousel-indicators" style="bottom: -25px;">
-                            <li data-target="#lajmet-carousel" data-slide-to="0" class="active" style="border-color: #1a2a6c; background-color: #1a2a6c;"></li>
-                            <li data-target="#lajmet-carousel" data-slide-to="1" style="border-color: #1a2a6c;"></li>
-                            <li data-target="#lajmet-carousel" data-slide-to="2" style="border-color: #1a2a6c;"></li>
-                        </ol>
+                    <!-- Kutia responsive e përshtatur nga Screenshot (226).jpg -->
+                    <div class="juicer-iframe-wrapper">
+                        <iframe 
+                            src="https://www.juicer.io/api/feeds/arsimiparauniversitar/iframe" 
+                            frameborder="0" 
+                            title="arsimiparauniversitar - Juicer social media feed">
+                        </iframe>
                     </div>
 
                 </div>
@@ -184,7 +100,7 @@
 
 
             <!-- ========================================================= -->
-            <!-- 2. SHIRITI I NJOFTIMEVE POSHTË                            -->
+            <!-- 2. SHIRITI I NJOFTIMEVE POSHTË (NDALON NË HOVER)          -->
             <!-- ========================================================= -->
             <div class="row">
                 <div class="col-xs-12">
