@@ -1,8 +1,9 @@
-/* =========================
-   STILI I PËRGJITHSHËM
-========================= */
+/* ==================================================
+   1. STILI I PËRGJITHSHËM (Rregullimi për Mobile)
+================================================== */
 html, body {
-    overflow-x: hidden !important; /* Parandalon scroll horizontal */
+    overflow-x: hidden !important; /* Parandalon scroll-in horizontal */
+    width: 100% !important;
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -14,16 +15,15 @@ html, body {
     box-sizing: border-box;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* ==================================================
+   2. NAVBAR
+================================================== */
 .navbar.navbar-custom {
     background-color: #1a2a6c;
     border: none;
     border-radius: 0;
     margin-bottom: 0;
     padding: 15px 0;
-    position: static;
     width: 100%;
 }
 
@@ -31,7 +31,6 @@ html, body {
     max-width: 1200px;
     margin: auto;
     padding: 0 20px;
-    width: 100%;
 }
 
 .navbar-custom .navbar-brand {
@@ -40,71 +39,20 @@ html, body {
     font-weight: 600;
 }
 
-.navbar-custom .navbar-nav > li > a {
-    color: #ffffff !important;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 15px 14px;
-    transition: 0.3s;
-}
-
-.navbar-custom .navbar-nav > li > a:hover {
-    background-color: #243b55 !important;
-    color: #ffffff !important;
-    border-radius: 4px;
-}
-
-.navbar-custom .navbar-nav > .active > a,
-.navbar-custom .navbar-nav > .active > a:hover {
-    background-color: #243b55 !important;
-    color: #ffffff !important;
-    border-radius: 4px;
-}
-
-.navbar-custom .navbar-toggle {
-    border: none;
-    background: transparent !important;
-    margin-top: 10px;
-}
-
-.navbar-custom .icon-bar {
-    background-color: #ffffff !important;
-}
-
-/* =========================
-   NJOFTIMET DHE KARTAT
-========================= */
+/* ==================================================
+   3. NJOFTIMET DHE KARTAT
+================================================== */
 .main-content {
-    width: 90%;
+    width: 95%;
     max-width: 1000px;
     margin: 40px auto;
 }
 
 .njoftime-section {
     background-color: #ffffff;
-    padding: 40px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.section-header h2 {
-    font-size: 32px;
-    font-weight: bold;
-    color: #1a2a6c;
-    margin-bottom: 10px;
-}
-
-.underline {
-    width: 60px;
-    height: 4px;
-    background-color: #ffca28;
-    margin: auto;
-    border-radius: 5px;
 }
 
 .njoftim-card {
@@ -113,17 +61,8 @@ html, body {
     border: 1px solid #e5e5e5;
     border-left: 5px solid #1a2a6c;
     border-radius: 8px;
+    margin-bottom: 20px;
     overflow: hidden;
-    transition: 0.3s;
-}
-
-.njoftim-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-.njoftim-card.highlight {
-    border-left-color: #ffca28;
 }
 
 .njoftim-date {
@@ -135,26 +74,12 @@ html, body {
     padding: 20px;
     text-align: center;
     font-weight: bold;
-    font-size: 13px;
     color: #1a2a6c;
 }
 
 .njoftim-content {
     flex: 1;
-    padding: 25px;
-}
-
-.njoftim-content h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 22px;
-    color: #1a2a6c;
-}
-
-.njoftim-content p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #444;
+    padding: 20px;
 }
 
 .tag {
@@ -166,30 +91,16 @@ html, body {
     border-radius: 20px;
     font-size: 11px;
     font-weight: bold;
-    cursor: pointer;
-}
-
-.tag:hover {
-    background-color: red;
-    color: white;
+    text-decoration: none;
 }
 
 /* ==================================================
-   CAROUSEL & TIKER (FIXES)
+   4. FACEBOOK & CAROUSEL (RESPONSIVE)
 ================================================== */
-
-/* Carousel Facebook */
-#lajmet-carousel {
-    width: 100%;
-    max-width: 750px;
-    margin: 0 auto;
-    position: relative;
-}
-
-#lajmet-carousel .carousel-inner .item.active {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
+/* Kjo është pjesa kryesore që rregullon Facebook-un */
+.fb-page, .fb-page span, .fb-page span iframe {
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
 .fb-karta-qender {
@@ -198,109 +109,68 @@ html, body {
     margin: 0 auto;
 }
 
-.carousel-control.left, .carousel-control.right {
-    background-image: none !important;
-    color: #1a2a6c !important;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.8;
-    font-size: 35px;
-    text-shadow: none !important;
-}
-
-.carousel-control.left { left: -30px; }
-.carousel-control.right { right: -30px; }
-
-.carousel-indicators {
-    position: relative;
-    bottom: auto;
-    margin-top: 25px;
-    left: 0;
+#lajmet-carousel {
     width: 100%;
-    margin-left: 0;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 30px; /* Hapësirë për shigjetat */
 }
-.carousel-indicators li { border-color: #1a2a6c !important; }
-.carousel-indicators .active { background-color: #1a2a6c !important; }
 
-/* Shirit Njoftime */
+/* ==================================================
+   5. SHIRITI I NJOFTIMEVE (TICKER)
+================================================== */
 .shirit-njoftime-kontainer-madh {
-    background-color: #ffffff;
-    border: 1px solid #e3e8ee;
+    width: 100%;
+    overflow: hidden; /* Fsheh elementet që dalin jashtë */
+    padding: 20px;
+    background: #fff;
     border-radius: 12px;
-    padding: 30px 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    margin: 0 auto 30px auto;
-    width: 100%;
-    overflow: hidden !important;
-    position: relative;
-}
-
-.shirit-njoftime-wrapper {
-    width: 100%;
-    overflow: hidden !important; 
 }
 
 .shirit-njoftime-track {
     display: flex;
     width: max-content;
-    animation: levizShiritin 35s linear infinite; 
-    align-items: stretch;
+    animation: levizShiritin 35s linear infinite;
 }
 
-.shirit-njoftime-track:hover { animation-play-state: paused; }
-
 .ticker-item {
-    width: 480px;
-    margin-right: 30px;
+    width: 350px; /* Gjerësia e kartës në ticker */
+    margin-right: 20px;
     flex-shrink: 0;
 }
 
 @keyframes levizShiritin {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } 
+    100% { transform: translateX(-50%); }
 }
 
-/* =========================
-   FOOTER DHE ELEMENTET E TJERA
-========================= */
-.footer {
-    background-color: #000000;
-    color: #ffffff;
-    text-align: center;
-    padding: 35px 20px;
-    margin-top: 50px;
-}
-
-.footer p { margin: 0 0 10px; font-size: 14px; }
-.footer a { color: #ffffff; text-decoration: none; font-size: 14px; }
-.footer a:hover { text-decoration: underline; }
-.njoftim-content a { text-decoration: none; color: #1a2a6c; }
-
-a, a:focus, a:active { outline: none; }
-
-/* =========================
-   RESPONSIVE (TWEAKS PËR CELULAR)
-========================= */
+/* ==================================================
+   6. RESPONSIVE (MEDIA QUERIES PËR CELULAR)
+================================================== */
 @media (max-width: 768px) {
-    .navbar-custom .navbar-brand { font-size: 22px; }
-    .navbar-custom .navbar-nav > li > a { font-size: 14px; }
-    .section-header h2 { font-size: 26px; }
+    /* Rregullimi i kartave të njoftimeve */
+    .njoftim-card, .ticker-item { 
+        flex-direction: column !important; 
+        width: 100% !important; 
+        margin-right: 0 !important;
+    }
     
-    /* Responsive Carousel */
-    #lajmet-carousel { max-width: 100%; padding: 0 30px; }
-    .carousel-control.left { left: 0px; }
-    .carousel-control.right { right: 0px; }
+    .njoftim-date { 
+        width: 100% !important; 
+        border-bottom: 1px solid #eee; 
+    }
     
-    /* Responsive Cards */
-    .njoftim-card, .ticker-item { flex-direction: column; width: 100% !important; }
+    /* Ndalon lëvizjen e ticker në celular nëse është shumë i ngushtë */
+    .shirit-njoftime-track { animation: none !important; flex-wrap: wrap; }
     
-    /* Ky është rregullimi kritik për të ndaluar scroll-in horizontal */
-    .ticker-item { margin-right: 0 !important; } 
-    
-    .njoftim-date { width: 100%; border-bottom: 1px solid #e5e5e5; }
-    .njoftim-content h3 { font-size: 20px; }
-    .njoftim-content p { font-size: 14px; }
+    .main-content { width: 98% !important; }
+}
+
+/* FOOTER */
+.footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
 }
