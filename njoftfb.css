@@ -284,4 +284,30 @@ a:active {
     .njoftim-content p {
         font-size: 14px;
     }
+   /* IZOLIMI I FACEBOOK-UT NGA STILI I NJOFTIMEVE */
+
+/* 1. Anulojmë flexbox-in e kartës vetëm për Facebook-un */
+.fb-karta-qender {
+    display: block !important; 
+    text-align: center !important;
+}
+
+/* 2. Detyrojmë iframe-in të jetë në qendër */
+.fb-page {
+    display: inline-block !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+}
+
+/* 3. Sigurohemi që karta nuk e shtyp Facebook-un */
+.njoftim-content .fb-page {
+    width: 500px !important; /* Gjerësia që ke vendosur në HTML */
+}
+
+/* 4. Rregullim për mobil (nëse gjerësia e ekranit është më e vogël se 500px) */
+@media (max-width: 500px) {
+    .njoftim-content .fb-page {
+        width: 100% !important;
+    }
+}
 }
