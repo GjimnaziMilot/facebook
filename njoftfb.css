@@ -2,7 +2,7 @@
    STILI I PËRGJITHSHËM
 ========================= */
 html, body {
-    overflow-x: hidden !important; /* Parandalon scroll horizontal në celular */
+    overflow-x: hidden !important; /* Parandalon scroll horizontal */
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -175,7 +175,7 @@ html, body {
 }
 
 /* ==================================================
-   INTEGRIMI: CAROUSEL & TIKER (FIXES)
+   CAROUSEL & TIKER (FIXES)
 ================================================== */
 
 /* Carousel Facebook */
@@ -282,7 +282,7 @@ html, body {
 a, a:focus, a:active { outline: none; }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE (TWEAKS PËR CELULAR)
 ========================= */
 @media (max-width: 768px) {
     .navbar-custom .navbar-brand { font-size: 22px; }
@@ -296,6 +296,10 @@ a, a:focus, a:active { outline: none; }
     
     /* Responsive Cards */
     .njoftim-card, .ticker-item { flex-direction: column; width: 100% !important; }
+    
+    /* Ky është rregullimi kritik për të ndaluar scroll-in horizontal */
+    .ticker-item { margin-right: 0 !important; } 
+    
     .njoftim-date { width: 100%; border-bottom: 1px solid #e5e5e5; }
     .njoftim-content h3 { font-size: 20px; }
     .njoftim-content p { font-size: 14px; }
