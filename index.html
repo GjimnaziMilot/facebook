@@ -17,7 +17,7 @@
         .fb-carousel-container {
             max-width: 1000px; 
             margin: 0 auto;
-            padding: 0; /* Hoqëm hapësirën e shigjetave pasi nuk duhen më */
+            padding: 0; 
             position: relative;
         }
 
@@ -30,7 +30,7 @@
             background: #fff;
         }
 
-        /* Pikat treguese poshtë (Indicators) - Të bëra më të dukshme */
+        /* Pikat treguese poshtë (Indicators) */
         .fb-carousel-container .carousel-indicators {
             bottom: -35px;
         }
@@ -205,7 +205,7 @@
                     <div class="fb-carousel-container">
                         <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                             
-                            <!-- Vetëm 2 Pikat Treguese në fund -->
+                            <!-- 2 Pikat treguese poshtë -->
                             <ol class="carousel-indicators">
                                 <li data-target="#facebookJuicerCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#facebookJuicerCarousel" data-slide-to="1"></li>
@@ -240,8 +240,6 @@
 
                             </div>
 
-                            <!-- SHIGJETAT U PROGRESUAN DHE U SHTYPNË NGA KODI -->
-
                         </div>
                     </div>
 
@@ -268,7 +266,7 @@
                                     <div class="njoftim-date">12 Maj 2026</div> 
                                     <div class="njoftim-content">
                                         <h3>Viti shkollor 2026-2027</h3>
-                                        <p>Sezoni i ri mësimor fillon zyrtarisht më 14 shtator 2026 dhe përfundon më 18 qershor 2027.</p>
+                                        <p>Sezoni i ri mësimor fillon zyrtarisht më 14 shtator 2026 dhepërfundon më 18 qershor 2027.</p>
                                         <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
                                     </div>
                                 </article>
@@ -336,6 +334,26 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Skripti i modifikuar për ndalim të përkohshëm (Pauzë/Rinisje) -->
+    <script>
+        $(document).ready(function() {
+            // Kontrollojmë nëse jemi në celular
+            if ($(window).width() < 768) {
+                var dynamicCarousel = $('#facebookJuicerCarousel');
+
+                // Sapo përdoruesi prek zonën e FB (kur fillon ndërveprimin)
+                $('.fb-carousel-container').on('touchstart mousedown', function() {
+                    dynamicCarousel.carousel('pause'); // Ndalo përkohësisht lëvizjen
+                });
+
+                // Sapo përdoruesi e heq gishtin ose klikon jashtë saj (pasi mbaron leximin)
+                $('.fb-carousel-container').on('touchend mouseleave', function() {
+                    dynamicCarousel.carousel('cycle'); // Rinis automatikisht lëvizjen çdo 3s
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
