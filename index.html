@@ -254,30 +254,57 @@
             100% { transform: translateX(-50%); }
         }
 
+       /* ========================================================= */
+        /* SHTESAT PËR KODET E REJA (FB IFRAME & SHIRITI LËVIZËS)    */
         /* ========================================================= */
-        /* RREGULLIMI I FACEBOOK IFRAME (Zvogëluar në 340px)         */
-        /* ========================================================= */
+        
         .fb-fixed-wrapper {
             width: 100%;
             display: flex;
-            justify-content: center; /* I mban iframe-t në mes të ekranit */
+            justify-content: center;
             overflow: hidden;
         }
 
-        /* ========================================================= */
-        /* PËRSHTATJA PËR CELULAR (RESPONSIVE)                       */
-        /* ========================================================= */
-        @media (max-width: 767px) {
-            .njoftim-card {
-                width: 300px;
-                margin: 0 10px;
-                padding: 12px;
-            }
-            .njoftim-content h3 {
-                font-size: 14px;
-            }
-            .njoftim-content p {
-                font-size: 12px;
+        .shirit-njoftime-kontainer-madh {
+            width: 100%;
+            background: transparent;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .shirit-njoftime-wrapper {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .shirit-njoftime-track {
+            display: flex;
+            width: max-content;
+            animation: rrjedhshmeriNjoftimesh 30s linear infinite;
+            gap: 20px; /* Hapësira mes kartave në lëvizje */
+        }
+
+        .shirit-njoftime-wrapper:hover .shirit-njoftime-track,
+        .shirit-njoftime-wrapper:active .shirit-njoftime-track {
+            animation-play-state: paused !important;
+            -webkit-animation-play-state: paused !important;
+        }
+
+        /* Përshtatja e gjerësisë së kartës TËNDE kur ndodhet brenda shiritit lëvizës */
+        .shirit-njoftime-track .njoftim-card {
+            width: 550px; 
+            flex-shrink: 0;
+            margin: 0;
+        }
+
+        @keyframes rrjedhshmeriNjoftimesh {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+            .shirit-njoftime-track .njoftim-card {
+                width: 320px; /* Zvogëlohet në celular që të përshtatet në ekran */
             }
         }
     </style>
