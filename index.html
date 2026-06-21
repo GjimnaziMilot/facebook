@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gjimnazi Milot - Njoftime</title>
 
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
+    <!-- Lidhja me skedarin CSS -->
     <link rel="stylesheet" href="njoftfb.css">
 </head>
 
 <body>
 
+    <!-- Skripti i Facebook -->
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/sq_AL/sdk.js#xfbml=1&version=v19.0" nonce="GjenEratOr"></script>
 
+    <!-- Navbar -->
     <nav class="navbar navbar-custom">
         <div class="container">
             <div class="navbar-header">
@@ -37,6 +41,7 @@
         </div>
     </nav>
 
+    <!-- Përmbajtja Kryesore -->
     <main class="main-content">
         <section class="njoftime-section">
             
@@ -45,6 +50,7 @@
                 <div class="underline"></div>
             </div>
 
+            <!-- SEKSIONI 1: Facebook Carousel (I mbledhur) -->
             <div class="row" style="margin-bottom: 75px;">
                 <div class="col-xs-12">
                     
@@ -66,48 +72,21 @@
                                 <div class="item active">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ZVAP Kurbin</div>
                                     <div class="fb-wrapper">
-                                        <div class="fb-page" 
-                                             data-href="https://www.facebook.com/profile.php?id=100064178460927" 
-                                             data-tabs="timeline" 
-                                             data-width="500" 
-                                             data-height="400" 
-                                             data-small-header="true" 
-                                             data-adapt-container-width="true" 
-                                             data-hide-cover="true" 
-                                             data-show-facepile="false">
-                                        </div>
+                                        <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100064178460927" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"></div>
                                     </div>
                                 </div>
 
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP</div>
                                     <div class="fb-wrapper">
-                                        <div class="fb-page" 
-                                             data-href="https://www.facebook.com/ASCAP2020" 
-                                             data-tabs="timeline" 
-                                             data-width="500" 
-                                             data-height="400" 
-                                             data-small-header="true" 
-                                             data-adapt-container-width="true" 
-                                             data-hide-cover="true" 
-                                             data-show-facepile="false">
-                                        </div>
+                                        <div class="fb-page" data-href="https://www.facebook.com/ASCAP2020" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"></div>
                                     </div>
                                 </div>
 
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP</div>
                                     <div class="fb-wrapper">
-                                        <div class="fb-page" 
-                                             data-href="https://www.facebook.com/arsimiparauniversitar" 
-                                             data-tabs="timeline" 
-                                             data-width="500" 
-                                             data-height="400" 
-                                             data-small-header="true" 
-                                             data-adapt-container-width="true" 
-                                             data-hide-cover="true" 
-                                             data-show-facepile="false">
-                                        </div>
+                                        <div class="fb-page" data-href="https://www.facebook.com/arsimiparauniversitar" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"></div>
                                     </div>
                                 </div>
 
@@ -118,6 +97,7 @@
                 </div>
             </div>
 
+            <!-- SEKSIONI 2: Shiriti Lëvizës me Njoftime (I PAPREKUR) -->
             <div class="row">
                 <div class="col-xs-12">
                     
@@ -156,6 +136,7 @@
                                     </div>
                                 </article>
 
+                                <!-- Përsëritja e kartave për loop -->
                                 <article class="njoftim-card">
                                     <div class="njoftim-date">12 Maj 2026</div> 
                                     <div class="njoftim-content">
@@ -193,38 +174,27 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Gjimnazi Milot. Të gjitha të drejtat të rezervuara.</p>
         <p><a href="mailto:milotgjimnazi@yahoo.com">Email: milotgjimnazi@yahoo.com</a></p>
     </footer>
 
+    <!-- Skriptet -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <script>
         $(document).ready(function() {
             var dynamicCarousel = $('#facebookJuicerCarousel');
-
-            dynamicCarousel.carousel({
-                interval: 6000,
-                pause: "hover"
-            });
-
-            $('.fb-wrapper').on('touchstart click', function() {
-                dynamicCarousel.carousel('pause');
-            });
-
+            dynamicCarousel.carousel({ interval: 6000, pause: "hover" });
+            $('.fb-wrapper').on('touchstart click', function() { dynamicCarousel.carousel('pause'); });
             dynamicCarousel.on('slide.bs.carousel', function (e) {
                 var $nextSlide = $(e.relatedTarget);
-                
                 if (!$nextSlide.data('fb-loaded') && typeof FB !== 'undefined') {
-                    FB.XFBML.parse($nextSlide[0], function() {
-                        $nextSlide.data('fb-loaded', true);
-                    });
+                    FB.XFBML.parse($nextSlide[0], function() { $nextSlide.data('fb-loaded', true); });
                 }
             });
         });
     </script>
-
 </body>
 </html>
