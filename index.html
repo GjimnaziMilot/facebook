@@ -6,11 +6,28 @@
     <title>Gjimnazi Milot - Njoftime</title>
 
     <link class="jsbin" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="njof.css">
+    </head>
+
+<body>
 
     <style>
-.navbar.navbar-custom {
+        /* =========================
+           STILI I PËRGJITHSHËM (Kodi yt nga njoftfb.css)
+        ========================= */
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar.navbar-custom {
             background-color: #1a2a6c;
             border: none;
             border-radius: 0;
@@ -75,7 +92,8 @@
         .navbar-custom .icon-bar {
             background-color: #ffffff !important;
         }
-  /* =========================
+
+        /* =========================
            NJOFTIMET
         ========================= */
 
@@ -84,59 +102,42 @@
             max-width: 1000px;
             margin: 40px auto;
         }
-     /* Container kartash */
 
-        .njoftime-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        }
-        /* =========================
-           FOOTER
-        ========================= */
+        /* Seksioni */
 
-        .footer {
-            background-color: #000000;
-            color: #ffffff;
+        .njoftime-section {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Titulli */
+
+        .section-header {
             text-align: center;
-            padding: 35px 20px;
-            margin-top: 50px;
+            margin-bottom: 35px;
         }
 
-        .footer p {
-            margin: 0 0 10px;
-            font-size: 14px;
-        }
-
-        .footer a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        .njoftim-content a {
-            text-decoration: none;
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: bold;
             color: #1a2a6c;
+            margin-bottom: 10px;
         }
-        /* kjo është për ngjyrën e kuqe kur klikojmë mbi të */
-        .tag:hover {
-            background-color: red;
-            color: white;
-        }
-        /*kjo është për të hqur outline-in (vija e zezë border tek kutia viti 
-        shkollor-shiko më shumë)*/
-        a,
-        a:focus,
-        a:active {
-            outline: none;
-        }
+
+   
         /* ========================================================= */
-        /* SHIRITI LËVIZËS                                           */
+        /* SHTESAT PËR KODET E REJA (FB IFRAME & SHIRITI LËVIZËS)    */
         /* ========================================================= */
+        
+        .fb-fixed-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
         .shirit-njoftime-kontainer-madh {
             width: 100%;
             background: transparent;
@@ -153,6 +154,7 @@
             display: flex;
             width: max-content;
             animation: rrjedhshmeriNjoftimesh 30s linear infinite;
+            gap: 20px; /* Hapësira mes kartave në lëvizje */
         }
 
         .shirit-njoftime-wrapper:hover .shirit-njoftime-track,
@@ -161,65 +163,24 @@
             -webkit-animation-play-state: paused !important;
         }
 
-        .njoftim-card {
+        /* Përshtatja e gjerësisë së kartës TËNDE kur ndodhet brenda shiritit lëvizës */
+        .shirit-njoftime-track .njoftim-card {
+            width: 550px; 
             flex-shrink: 0;
-            width: 450px;
-            margin: 0 20px;
-            background: #fff;
-            border-radius: 6px;
-            padding: 15px 20px;
-            border-top: 4px solid #1a2a6c;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            text-align: left;
+            margin: 0;
         }
 
-        .njoftim-date {
-            font-size: 11px;
-            color: #888;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-      /* ========================================================= */
-        /* RREGULLIMI I FACEBOOK IFRAME                              */
-        /* ========================================================= */
-        
-        .fb-carousel-container {
-            width: 100%;
-            max-width: 450px; 
-            margin: 0 auto; /* E vendos në qendër */
+        @keyframes rrjedhshmeriNjoftimesh {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .fb-fixed-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .fb-fixed-wrapper iframe {
-            max-width: 100%; /* Shmang daljen nga ekrani në celular */
-        }
-
-        /* ========================================================= */
-        /* PËRSHTATJA PËR CELULAR (RESPONSIVE)                       */
-        /* ========================================================= */
-        @media (max-width: 767px) {
-            .njoftim-card {
-                width: 300px;
-                margin: 0 10px;
-                padding: 12px;
-            }
-            .njoftim-content h3 {
-                font-size: 14px;
-            }
-            .njoftim-content p {
-                font-size: 12px;
+        @media (max-width: 768px) {
+            .shirit-njoftime-track .njoftim-card {
+                width: 320px; /* Zvogëlohet në celular që të përshtatet në ekran */
             }
         }
     </style>
-</head>
-
-<body>
 
     <nav class="navbar navbar-custom">
         <div class="container">
@@ -244,7 +205,7 @@
     </nav>
 
     <main class="main-content">
-        <section class="njoftime-section" style="padding-top: 10px; background-color: transparent; box-shadow: none;">
+        <section class="njoftime-section">
             
             <div class="section-header text-center" style="margin-bottom: 35px;">
                 <h2>Lajmet e fundit</h2>
@@ -261,10 +222,10 @@
                     <div class="fb-carousel-container">
                         <div id="facebookInstitucioneCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                             
-                            <ol class="carousel-indicators">
-                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="1"></li>
-                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="2"></li>
+                            <ol class="carousel-indicators" style="bottom: -40px;">
+                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="0" class="active" style="border-color: #1a2a6c;"></li>
+                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="1" style="border-color: #1a2a6c;"></li>
+                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="2" style="border-color: #1a2a6c;"></li>
                             </ol>
 
                             <div class="carousel-inner" role="listbox">
@@ -273,7 +234,7 @@
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ZVAP Kurbin</div>
                                     <div class="fb-fixed-wrapper">
                                         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064178460927&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="450" 
+                                                width="340" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
@@ -288,7 +249,7 @@
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP</div>
                                     <div class="fb-fixed-wrapper">
                                         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FASCAP2020&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="450" 
+                                                width="340" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
@@ -303,7 +264,7 @@
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP</div>
                                     <div class="fb-fixed-wrapper">
                                         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Farsimiparauniversitar&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="450" 
+                                                width="340" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
