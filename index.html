@@ -11,7 +11,7 @@
 
     <style>
         /* ========================================================= */
-        /* STILIMI PËR CAROUSEL-IN E FACEBOOK                        */
+        /* STILIMI PËR CAROUSEL-IN E FACEBOOK (I FIKSUAR)            */
         /* ========================================================= */
         .fb-carousel-container {
             max-width: 1000px; 
@@ -20,16 +20,27 @@
             position: relative;
         }
 
-        /* Qendërzimi i shtojcës së Facebook */
-        .fb-wrapper {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            overflow: hidden;
+        /* Qendërzimi dhe fiksimi i hapësirës së Facebook */
+        .fb-fixed-wrapper {
+            max-width: 500px; /* Gjerësia maksimale e lejueshme nga FB */
+            height: 600px;    /* Lartësia e fiksuar për të shmangur vonesat */
+            margin: 0 auto;   /* Qendërzohet automatikisht */
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            padding: 10px 0;
+            overflow: hidden; /* Mban IFrame brenda kornizës */
+            position: relative;
+            
+            /* Sigurohet që hapësira të jetë e zënë para se të ngarkohet FB */
+            display: block;
+        }
+
+        /* Stilimi i IFrame-it static */
+        .fb-fixed-wrapper iframe {
+            width: 100% !important;
+            height: 100% !important;
+            border: none;
+            overflow: hidden;
         }
 
         /* Pikat treguese poshtë (Indicators) */
@@ -142,6 +153,11 @@
                 max-width: 100%;
                 padding: 0 5px !important; 
             }
+            
+            /* Përshtatja e lartësisë në celular nëse duhet */
+            .fb-fixed-wrapper {
+                height: 550px;
+            }
 
             .njoftim-card {
                 width: 300px;
@@ -159,9 +175,6 @@
 </head>
 
 <body>
-
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/sq_AL/sdk.js#xfbml=1&version=v19.0" nonce="GjenEratOr"></script>
 
     <nav class="navbar navbar-custom">
         <div class="container">
@@ -201,61 +214,58 @@
                     </div>
 
                     <div class="fb-carousel-container">
-                        <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                        <div id="facebookInstitucioneCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                             
                             <ol class="carousel-indicators">
-                                <li data-target="#facebookJuicerCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#facebookJuicerCarousel" data-slide-to="1"></li>
-                                <li data-target="#facebookJuicerCarousel" data-slide-to="2"></li>
+                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="1"></li>
+                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="2"></li>
                             </ol>
 
                             <div class="carousel-inner" role="listbox">
                                 
                                 <div class="item active">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ZVAP Kurbin</div>
-                                    <div class="fb-wrapper">
-                                        <div class="fb-page" 
-                                             data-href="https://www.facebook.com/profile.php?id=100064178460927" 
-                                             data-tabs="timeline" 
-                                             data-width="500" 
-                                             data-height="600" 
-                                             data-small-header="false" 
-                                             data-adapt-container-width="true" 
-                                             data-hide-cover="false" 
-                                             data-show-facepile="false">
-                                        </div>
+                                    <div class="fb-fixed-wrapper">
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064178460927&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="500" 
+                                                height="600" 
+                                                style="border:none;overflow:hidden" 
+                                                scrolling="no" 
+                                                frameborder="0" 
+                                                allowfullscreen="true" 
+                                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                        </iframe>
                                     </div>
                                 </div>
 
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP</div>
-                                    <div class="fb-wrapper">
-                                        <div class="fb-page" 
-                                             data-href="https://www.facebook.com/ASCAP2020" 
-                                             data-tabs="timeline" 
-                                             data-width="500" 
-                                             data-height="600" 
-                                             data-small-header="false" 
-                                             data-adapt-container-width="true" 
-                                             data-hide-cover="false" 
-                                             data-show-facepile="false">
-                                        </div>
+                                    <div class="fb-fixed-wrapper">
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FASCAP2020&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="500" 
+                                                height="600" 
+                                                style="border:none;overflow:hidden" 
+                                                scrolling="no" 
+                                                frameborder="0" 
+                                                allowfullscreen="true" 
+                                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                        </iframe>
                                     </div>
                                 </div>
 
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP</div>
-                                    <div class="fb-wrapper">
-                                        <div class="fb-page" 
-                                             data-href="https://www.facebook.com/arsimiparauniversitar" 
-                                             data-tabs="timeline" 
-                                             data-width="500" 
-                                             data-height="600" 
-                                             data-small-header="false" 
-                                             data-adapt-container-width="true" 
-                                             data-hide-cover="false" 
-                                             data-show-facepile="false">
-                                        </div>
+                                    <div class="fb-fixed-wrapper">
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Farsimiparauniversitar&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="500" 
+                                                height="600" 
+                                                style="border:none;overflow:hidden" 
+                                                scrolling="no" 
+                                                frameborder="0" 
+                                                allowfullscreen="true" 
+                                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                        </iframe>
                                     </div>
                                 </div>
 
@@ -352,25 +362,20 @@
 
     <script>
         $(document).ready(function() {
-            var dynamicCarousel = $('#facebookJuicerCarousel');
+            var dynamicCarousel = $('#facebookInstitucioneCarousel');
 
-            // Ndalo karuselin nëse përdoruesi kalon mausin (për kompjuter)
+            // Aktivizo karuselin me interval 3 sekonda dhe ndalo kur ka kursorin sipër
             dynamicCarousel.carousel({
                 interval: 3000,
                 pause: "hover"
             });
 
-            // Ndalo karuselin nëse përdoruesi prek zonën (për celular)
-            $('.fb-wrapper').on('touchstart click', function() {
+            // Ndalo karuselin nëse përdoruesi prek zonën e IFrame në celular
+            $('.fb-fixed-wrapper').on('touchstart click', function() {
                 dynamicCarousel.carousel('pause');
             });
-
-            // Rifresko Facebook Plugin kur ndërrohet sllajdi
-            dynamicCarousel.on('slid.bs.carousel', function () {
-                if (typeof FB !== 'undefined') {
-                    FB.XFBML.parse(this);
-                }
-            });
+            
+            // Nuk nevojitet më FB.XFBML.parse pasi përdorim IFrames static.
         });
     </script>
 
