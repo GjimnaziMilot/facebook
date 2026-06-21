@@ -11,7 +11,7 @@
 
     <style>
         /* ========================================================= */
-        /* STILIMI PËR CAROUSEL-IN E FACEBOOK (I FIKSUAR)            */
+        /* STILIMI I RI RESPONSIVE PËR FACEBOOK (340px x 500px)     */
         /* ========================================================= */
         .fb-carousel-container {
             max-width: 1000px; 
@@ -20,20 +20,21 @@
             position: relative;
         }
 
-        /* Qendërzimi dhe fiksimi i hapësirës së Facebook */
+        /* Korniza e fiksuar që përshtatet perfekt në çdo ekran */
         .fb-fixed-wrapper {
-            max-width: 500px; /* Gjerësia maksimale e lejueshme nga FB */
-            height: 600px;    /* Lartësia e fiksuar për të shmangur vonesat */
-            margin: 0 auto;   /* Qendërzohet automatikisht */
+            max-width: 340px; /* Gjerësia ideale që nuk pritet kurrë në celular */
+            width: 100%;
+            height: 500px;    /* Lartësia e re proporcionale */
+            margin: 0 auto;   
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            overflow: hidden; /* Mban IFrame brenda kornizës */
+            overflow: hidden; 
             position: relative;
             display: block;
         }
 
-        /* Stilimi i IFrame-it static */
+        /* Siguron që IFrame të qëndrojë fiks brenda kornizës */
         .fb-fixed-wrapper iframe {
             width: 100% !important;
             height: 100% !important;
@@ -60,7 +61,7 @@
         }
 
         /* ========================================================= */
-        /* 2. SHIRITI LËVIZËS ME STILIN TËND TË KARTAVE              */
+        /* 2. SHIRITI LËVIZËS I NJOFTIMEVE                            */
         /* ========================================================= */
         .shirit-njoftime-kontainer-madh {
             width: 100%;
@@ -144,16 +145,17 @@
         }
 
         /* ========================================================= */
-        /* 3. PËRSHTATJA PËR CELULAR (RESPONSIVE)                    */
+        /* 3. OPTIMIZIMET SPECIFIKE PËR CELULAR                     */
         /* ========================================================= */
         @media (max-width: 767px) {
             .fb-carousel-container {
                 max-width: 100%;
-                padding: 0 5px !important; 
+                padding: 0 10px !important; 
             }
             
+            /* Lartësi pak më kompakte në celular që të mos bllokojë ekranin */
             .fb-fixed-wrapper {
-                height: 550px;
+                height: 480px; 
             }
 
             .njoftim-card {
@@ -162,10 +164,17 @@
                 padding: 12px;
             }
             .njoftim-content h3 {
-                font-size: 14px;
+                font-size: 13px;
             }
             .njoftim-content p {
                 font-size: 12px;
+            }
+            
+            .section-header h2 {
+                font-size: 24px;
+            }
+            .text-center {
+                font-size: 18px !important;
             }
         }
     </style>
@@ -203,7 +212,7 @@
                 <div class="underline"></div>
             </div>
 
-            <div class="row" style="margin-bottom: 75px;">
+            <div class="row" style="margin-bottom: 60px;">
                 <div class="col-xs-12">
                     
                     <div class="text-center" style="margin-bottom: 25px; color: #1a2a6c; font-size: 22px; font-weight: bold;">
@@ -225,9 +234,9 @@
                                 <div class="item active">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: Gjimnazi Milot</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgjimnazi.milot&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="500" 
-                                                height="600" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgjimnazi.milot&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="340" 
+                                                height="500" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
                                                 frameborder="0" 
@@ -240,9 +249,9 @@
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ZVAP Kurbin</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064178460927&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="500" 
-                                                height="600" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064178460927&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="340" 
+                                                height="500" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
                                                 frameborder="0" 
@@ -255,9 +264,9 @@
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FASCAP2020&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="500" 
-                                                height="600" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FASCAP2020&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="340" 
+                                                height="500" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
                                                 frameborder="0" 
@@ -270,9 +279,9 @@
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Farsimiparauniversitar&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="500" 
-                                                height="600" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Farsimiparauniversitar&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="340" 
+                                                height="500" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
                                                 frameborder="0" 
@@ -377,13 +386,13 @@
         $(document).ready(function() {
             var dynamicCarousel = $('#facebookInstitucioneCarousel');
 
-            // Aktivizo karuselin me interval 3 sekonda dhe ndalo kur ka kursorin sipër
+            // Aktivizo karuselin me interval 3 sekonda
             dynamicCarousel.carousel({
                 interval: 3000,
                 pause: "hover"
             });
 
-            // Ndalo karuselin nëse përdoruesi prek zonën e kornizave në celular
+            // Ndalo karuselin nëse përdoruesi prek zonën e kornizave në celular që të mund të lexojë lajmin
             $('.fb-fixed-wrapper').on('touchstart click', function() {
                 dynamicCarousel.carousel('pause');
             });
