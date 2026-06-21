@@ -1,6 +1,7 @@
 /* =========================
-   1. STILI I PËRGJITHSHËM
+   STILI I PËRGJITHSHËM
 ========================= */
+
 body {
     margin: 0;
     padding: 0;
@@ -10,8 +11,9 @@ body {
 }
 
 /* =========================
-   2. NAVBAR
+   NAVBAR
 ========================= */
+
 .navbar.navbar-custom {
     background-color: #1a2a6c;
     border: none;
@@ -21,17 +23,26 @@ body {
     position: static;
     width: 100%;
 }
+
+/* Container */
+
 .navbar-custom .container {
     max-width: 1200px;
     margin: auto;
     padding: 0 20px;
     width: 100%;
 }
+
+/* Logo */
+
 .navbar-custom .navbar-brand {
     color: #ffffff !important;
     font-size: 20px;
     font-weight: 600;
 }
+
+/* Linket */
+
 .navbar-custom .navbar-nav > li > a {
     color: #ffffff !important;
     font-size: 15px;
@@ -39,46 +50,71 @@ body {
     padding: 15px 14px;
     transition: 0.3s;
 }
-.navbar-custom .navbar-nav > li > a:hover,
+
+/* Hover */
+
+.navbar-custom .navbar-nav > li > a:hover {
+    background-color: #243b55 !important;
+    color: #ffffff !important;
+    border-radius: 4px;
+}
+
+/* Linku aktiv */
+
 .navbar-custom .navbar-nav > .active > a,
 .navbar-custom .navbar-nav > .active > a:hover {
     background-color: #243b55 !important;
     color: #ffffff !important;
     border-radius: 4px;
 }
+
+/* Hamburger menu */
+
 .navbar-custom .navbar-toggle {
     border: none;
     background: transparent !important;
     margin-top: 10px;
 }
+
 .navbar-custom .icon-bar {
     background-color: #ffffff !important;
 }
 
 /* =========================
-   3. SEKSIONI I NJOFTIMEVE
+   NJOFTIMET
 ========================= */
+
 .main-content {
     width: 90%;
     max-width: 1000px;
     margin: 40px auto;
 }
+
+/* Seksioni */
+
 .njoftime-section {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
+
+/* Titulli */
+
 .section-header {
     text-align: center;
     margin-bottom: 35px;
 }
+
 .section-header h2 {
     font-size: 32px;
     font-weight: bold;
     color: #1a2a6c;
     margin-bottom: 10px;
 }
+
+/* Vija */
+
 .underline {
     width: 60px;
     height: 4px;
@@ -87,9 +123,16 @@ body {
     border-radius: 5px;
 }
 
-/* =========================
-   4. KARTAT E NJOFTIMEVE (Origjinali Yt)
-========================= */
+/* Container kartash */
+
+.njoftime-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Kartat */
+
 .njoftim-card {
     display: flex;
     background-color: #ffffff;
@@ -99,13 +142,22 @@ body {
     overflow: hidden;
     transition: 0.3s;
 }
+
+/* Hover */
+
 .njoftim-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
+
+/* Highlight */
+
 .njoftim-card.highlight {
     border-left-color: #ffca28;
 }
+
+/* Data */
+
 .njoftim-date {
     width: 150px;
     background-color: #f7f7f7;
@@ -118,21 +170,33 @@ body {
     font-size: 13px;
     color: #1a2a6c;
 }
+
+/* Përmbajtja */
+
 .njoftim-content {
     flex: 1;
     padding: 25px;
 }
+
+/* Titulli i kartës */
+
 .njoftim-content h3 {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 22px;
     color: #1a2a6c;
 }
+
+/* Teksti */
+
 .njoftim-content p {
     font-size: 15px;
     line-height: 1.6;
     color: #444;
 }
+
+/* Tag */
+
 .tag {
     display: inline-block;
     margin-top: 15px;
@@ -143,113 +207,11 @@ body {
     font-size: 11px;
     font-weight: bold;
 }
-.njoftim-content a {
-    text-decoration: none;
-    color: #1a2a6c;
-}
-.tag:hover {
-    background-color: red;
-    color: white;
-}
-a, a:focus, a:active {
-    outline: none;
-}
 
 /* =========================
-   5. SHIRITI LËVIZËS (I PAPREKUR)
+   FOOTER
 ========================= */
-.shirit-njoftime-kontainer-madh {
-    width: 100%;
-    background: transparent;
-    overflow: hidden;
-    padding: 20px 0;
-}
-.shirit-njoftime-wrapper {
-    width: 100%;
-    overflow: hidden;
-}
-.shirit-njoftime-track {
-    display: flex;
-    width: max-content;
-    animation: rrjedhshmeriNjoftimesh 30s linear infinite;
-}
-.shirit-njoftime-wrapper:hover .shirit-njoftime-track,
-.shirit-njoftime-wrapper:active .shirit-njoftime-track {
-    animation-play-state: paused !important;
-    -webkit-animation-play-state: paused !important;
-}
-.shirit-njoftime-track .njoftim-card {
-    display: block; 
-    flex-shrink: 0;
-    width: 450px;
-    margin: 0 20px;
-    padding: 15px 20px;
-    border: 1px solid #e5e5e5;
-    border-top: 4px solid #1a2a6c;
-    border-left: 1px solid #e5e5e5;
-}
-.shirit-njoftime-track .njoftim-date {
-    width: auto;
-    background: transparent;
-    display: block;
-    padding: 0;
-    text-align: left;
-    font-size: 11px;
-    color: #888;
-    margin-bottom: 5px;
-}
-.shirit-njoftime-track .njoftim-content {
-    padding: 0;
-}
-.shirit-njoftime-track .njoftim-content h3 {
-    font-size: 15px;
-    margin: 5px 0;
-}
-.shirit-njoftime-track .njoftim-content p {
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-@keyframes rrjedhshmeriNjoftimesh {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
 
-/* =========================
-   6. FACEBOOK CAROUSEL
-========================= */
-.fb-carousel-container {
-    max-width: 700px; 
-    margin: 0 auto;
-    position: relative;
-}
-.fb-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 400px;
-    overflow-y: auto;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 10px 0;
-}
-.fb-carousel-container .carousel-indicators {
-    bottom: -35px;
-}
-.fb-carousel-container .carousel-indicators li {
-    border: 2px solid #1a2a6c;
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-.fb-carousel-container .carousel-indicators .active {
-    background-color: #1a2a6c;
-}
-
-/* =========================
-   7. FOOTER
-========================= */
 .footer {
     background-color: #000000;
     color: #ffffff;
@@ -257,37 +219,69 @@ a, a:focus, a:active {
     padding: 35px 20px;
     margin-top: 50px;
 }
-.footer p { margin: 0 0 10px; font-size: 14px; }
-.footer a { color: #ffffff; text-decoration: none; font-size: 14px; }
-.footer a:hover { text-decoration: underline; }
 
-/* ==================================================== */
-/* 8. RESPONSIVE (Me ndërhyrjen VETËM tek FB)           */
-/* ==================================================== */
+.footer p {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+.njoftim-content a {
+    text-decoration: none;
+    color: #1a2a6c;
+}
+/* kjo është për ngjyrën e kuqe kur klikojmë mbi të */
+.tag:hover {
+    background-color: red;
+    color: white;
+}
+/*kjo është për të hqur outline-in (vija e zezë border tek kutia viti 
+shkollor-shiko më shumë)*/
+a,
+a:focus,
+a:active {
+    outline: none;
+}
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 768px) {
-    .navbar-custom .navbar-brand { font-size: 22px; }
-    .navbar-custom .navbar-nav > li > a { font-size: 14px; }
-    .section-header h2 { font-size: 26px; }
 
-    /* Rregulli yt origjinal për njoftimet e tjera */
-    .njoftim-card { flex-direction: column; }
-    .njoftim-date { width: 100%; border-bottom: 1px solid #e5e5e5; }
-    .njoftim-content h3 { font-size: 20px; }
-    .njoftim-content p { font-size: 14px; }
+    .navbar-custom .navbar-brand {
+        font-size: 22px;
+    }
 
-    /* Detyrimisht gjerësia 100% vetëm për Facebook-un */
-    .fb-carousel-container {
-        padding: 0 10px !important;
-        max-width: 100%;
+    .navbar-custom .navbar-nav > li > a {
+        font-size: 14px;
     }
-    .fb-wrapper {
-        max-width: 100%;
-        overflow-x: hidden !important;
+
+    .section-header h2 {
+        font-size: 26px;
     }
-    .fb-page, 
-    .fb-page span, 
-    .fb-page span iframe[style] {
-        max-width: 100% !important;
-        width: 100% !important;
+
+    .njoftim-card {
+        flex-direction: column;
+    }
+
+    .njoftim-date {
+        width: 100%;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .njoftim-content h3 {
+        font-size: 20px;
+    }
+
+    .njoftim-content p {
+        font-size: 14px;
     }
 }
