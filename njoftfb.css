@@ -1,6 +1,6 @@
-/* ========================================================= */
-/* 1. STILI I PËRGJITHSHËM                                   */
-/* ========================================================= */
+/* =========================
+   STILI I PËRGJITHSHËM
+========================= */
 body {
     margin: 0;
     padding: 0;
@@ -9,9 +9,9 @@ body {
     color: #333;
 }
 
-/* ========================================================= */
-/* 2. NAVBAR                                                 */
-/* ========================================================= */
+/* =========================
+   NAVBAR
+========================= */
 .navbar.navbar-custom {
     background-color: #1a2a6c;
     border: none;
@@ -43,7 +43,12 @@ body {
     transition: 0.3s;
 }
 
-.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:hover {
+    background-color: #243b55 !important;
+    color: #ffffff !important;
+    border-radius: 4px;
+}
+
 .navbar-custom .navbar-nav > .active > a,
 .navbar-custom .navbar-nav > .active > a:hover {
     background-color: #243b55 !important;
@@ -61,9 +66,9 @@ body {
     background-color: #ffffff !important;
 }
 
-/* ========================================================= */
-/* 3. SEKSIONI I NJOFTIMEVE (STRUKTURA E MADHE)              */
-/* ========================================================= */
+/* =========================
+   NJOFTIMET (Dizajni Yt Origjinal)
+========================= */
 .main-content {
     width: 90%;
     max-width: 1000px;
@@ -97,159 +102,92 @@ body {
     border-radius: 5px;
 }
 
-/* ========================================================= */
-/* 4. CAROUSEL-I I FACEBOOK-UT                               */
-/* ========================================================= */
-.fb-carousel-container {
-    max-width: 700px; 
-    margin: 0 auto;
-    padding: 0; 
-    position: relative;
-}
-
-.fb-wrapper {
+.njoftime-container {
     display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 400px; /* Lartësia kompakte për të gjitha pajisjet */
-    overflow-y: auto;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 10px 0;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.fb-carousel-container .carousel-indicators {
-    bottom: -35px;
-}
-
-.fb-carousel-container .carousel-indicators li {
-    border: 2px solid #1a2a6c;
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.fb-carousel-container .carousel-indicators .active {
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
-    background-color: #1a2a6c;
-}
-
-/* ========================================================= */
-/* 5. SHIRITI LËVIZËS (TICKER) ME KARTA                      */
-/* ========================================================= */
-.shirit-njoftime-kontainer-madh {
-    width: 100%;
-    background: transparent;
-    overflow: hidden;
-    padding: 20px 0;
-}
-
-.shirit-njoftime-wrapper {
-    width: 100%;
-    overflow: hidden;
-}
-
-.shirit-njoftime-track {
+.njoftim-card {
     display: flex;
-    width: max-content;
-    animation: rrjedhshmeriNjoftimesh 30s linear infinite;
-}
-
-.shirit-njoftime-wrapper:hover .shirit-njoftime-track,
-.shirit-njoftime-wrapper:active .shirit-njoftime-track {
-    animation-play-state: paused !important;
-    -webkit-animation-play-state: paused !important;
-}
-
-/* Kartat brenda shiritit lëvizës */
-.shirit-njoftime-track .njoftim-card {
-    display: block; 
-    flex-shrink: 0;
-    width: 450px;
-    margin: 0 20px;
-    background: #fff;
-    border-radius: 6px;
-    padding: 15px 20px;
+    background-color: #ffffff;
     border: 1px solid #e5e5e5;
-    border-top: 4px solid #1a2a6c;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    text-align: left;
+    border-left: 5px solid #1a2a6c;
+    border-radius: 8px;
+    overflow: hidden;
     transition: 0.3s;
 }
 
-.shirit-njoftime-track .njoftim-card:hover {
+.njoftim-card:hover {
     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-.shirit-njoftime-track .njoftim-date {
-    width: auto;
-    background-color: transparent;
-    display: block;
-    padding: 0;
-    text-align: left;
-    font-size: 11px;
-    color: #888;
+.njoftim-card.highlight {
+    border-left-color: #ffca28;
+}
+
+.njoftim-date {
+    width: 150px;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
     font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.shirit-njoftime-track .njoftim-content {
-    padding: 0;
-}
-
-.shirit-njoftime-track .njoftim-content h3 {
-    font-size: 15px;
-    margin: 5px 0;
-    color: #1a2a6c;
-    font-weight: bold;
-}
-
-.shirit-njoftime-track .njoftim-content p {
     font-size: 13px;
-    color: #555;
-    line-height: 1.4;
-    margin-bottom: 10px;
+    color: #1a2a6c;
 }
 
-/* Linku dhe Butoni Tag */
-.njoftim-content a {
-    text-decoration: none;
+.njoftim-content {
+    flex: 1;
+    padding: 25px;
+}
+
+.njoftim-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 22px;
     color: #1a2a6c;
+}
+
+.njoftim-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
 }
 
 .tag {
     display: inline-block;
+    margin-top: 15px;
     background-color: #e8eaf6;
     color: #1a2a6c;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 11px;
     font-weight: bold;
-    transition: 0.2s ease;
 }
 
-.tag:hover, 
-.njoftim-content a:hover .tag {
-    background-color: red !important;
-    color: white !important;
+.njoftim-content a {
+    text-decoration: none;
+    color: #1a2a6c;
 }
 
-a, a:focus, a:active {
+.tag:hover {
+    background-color: red;
+    color: white;
+}
+
+a,
+a:focus,
+a:active {
     outline: none;
 }
 
-@keyframes rrjedhshmeriNjoftimesh {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* ========================================================= */
-/* 6. FOOTER                                                 */
-/* ========================================================= */
+/* =========================
+   FOOTER
+========================= */
 .footer {
     background-color: #000000;
     color: #ffffff;
@@ -273,9 +211,46 @@ a, a:focus, a:active {
     text-decoration: underline;
 }
 
-/* ========================================================= */
-/* 7. RESPONSIVE (PËR CELULAR DHE TABLET)                    */
-/* ========================================================= */
+/* =========================
+   SHTESA PËR CAROUSEL-in E FACEBOOK
+========================= */
+.fb-carousel-container {
+    max-width: 700px; 
+    margin: 0 auto;
+    position: relative;
+}
+
+.fb-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 10px 0;
+}
+
+.fb-carousel-container .carousel-indicators {
+    bottom: -35px;
+}
+
+.fb-carousel-container .carousel-indicators li {
+    border: 2px solid #1a2a6c;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.fb-carousel-container .carousel-indicators .active {
+    background-color: #1a2a6c;
+}
+
+/* =========================
+   RESPONSIVE (Me rregullimin tënd dhe të Facebook)
+========================= */
 @media (max-width: 768px) {
     .navbar-custom .navbar-brand {
         font-size: 22px;
@@ -289,37 +264,33 @@ a, a:focus, a:active {
         font-size: 26px;
     }
 
-    /* Rregullimi kritik i Facebook-ut për Celular */
+    /* Kodi yt origjinal për kartat në celular */
+    .njoftim-card {
+        flex-direction: column;
+    }
+
+    .njoftim-date {
+        width: 100%;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .njoftim-content h3 {
+        font-size: 20px;
+    }
+
+    .njoftim-content p {
+        font-size: 14px;
+    }
+
+    /* Rregullimi i domosdoshëm për Facebook në celular */
     .fb-carousel-container {
-        max-width: 100%;
-        padding: 0 10px !important; 
+        padding: 0 10px;
     }
 
-    .fb-wrapper {
-        max-width: 100%;
-        overflow-x: hidden !important;
-    }
-
-    /* Detyron iframe-in e Facebook të kutiset brenda ekranit */
     .fb-page, 
     .fb-page span, 
     .fb-page span iframe[style] {
         max-width: 100% !important;
         width: 100% !important;
-    }
-
-    /* Përshtatja e kartave lëvizëse për Celular */
-    .shirit-njoftime-track .njoftim-card {
-        width: 290px;
-        margin: 0 10px;
-        padding: 12px;
-    }
-
-    .shirit-njoftime-track .njoftim-content h3 {
-        font-size: 14px;
-    }
-
-    .shirit-njoftime-track .njoftim-content p {
-        font-size: 12px;
     }
 }
