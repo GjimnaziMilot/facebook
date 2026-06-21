@@ -5,18 +5,200 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gjimnazi Milot - Njoftime</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link class="jsbin" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Lidhja me skedarin CSS -->
-    <link rel="stylesheet" href="njoftfb.css">
+    <!-- Lidhja me skedarin tënd CSS -->
+    <link rel="stylesheet" href="njof.css">
+
+    <style>
+        /* ========================================================= */
+        /* STILIMI PËR CAROUSEL-IN E FACEBOOK (VETËM ME PIKA)        */
+        /* ========================================================= */
+        .fb-carousel-container {
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 0; 
+            position: relative;
+        }
+
+        .juicer-iframe-wrapper {
+            position: relative; /* Nevojitet për shtresën e padukshme */
+        }
+
+        .juicer-iframe-wrapper iframe {
+            width: 100%;
+            height: 600px; 
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background: #fff;
+        }
+
+        /* TRUKU: Shtresa e padukshme që kap prekjen në celular */
+        .fb-touch-overlay {
+            display: none;
+        }
+
+        /* Pikat treguese poshtë (Indicators) */
+        .fb-carousel-container .carousel-indicators {
+            bottom: -35px;
+        }
+        .fb-carousel-container .carousel-indicators li {
+            border: 2px solid #1a2a6c;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .fb-carousel-container .carousel-indicators .active {
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background-color: #1a2a6c;
+        }
+
+        /* ========================================================= */
+        /* 2. SHIRITI LËVIZËS ME STILIN TËND TË KARTAVE (I PAPREKUR) */
+        /* ========================================================= */
+        .shirit-njoftime-kontainer-madh {
+            width: 100%;
+            background: transparent;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .shirit-njoftime-wrapper {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .shirit-njoftime-track {
+            display: flex;
+            width: max-content;
+            animation: rrjedhshmeriNjoftimesh 30s linear infinite;
+        }
+
+        .shirit-njoftime-wrapper:hover .shirit-njoftime-track,
+        .shirit-njoftime-wrapper:active .shirit-njoftime-track {
+            animation-play-state: paused !important;
+            -webkit-animation-play-state: paused !important;
+        }
+
+        .njoftim-card {
+            flex-shrink: 0;
+            width: 450px;
+            margin: 0 20px;
+            background: #fff;
+            border-radius: 6px;
+            padding: 15px 20px;
+            border-top: 4px solid #1a2a6c;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: left;
+        }
+
+        .njoftim-date {
+            font-size: 11px;
+            color: #888;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .njoftim-content h3 {
+            font-size: 15px;
+            margin: 5px 0;
+            color: #1a2a6c;
+            font-weight: bold;
+        }
+
+        .njoftim-content p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .njoftim-content .tag {
+            font-size: 11px;
+            background: #1a2a6c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            display: inline-block;
+            text-decoration: none;
+            transition: background 0.1s ease;
+        }
+
+         .njoftim-content a:hover .tag,
+        .njoftim-content a:active .tag,
+        .njoftim-content .tag:hover,
+        .njoftim-content .tag:active {
+            background: #ff1911 !important;
+            color: white !important;
+        }
+
+        @keyframes rrjedhshmeriNjoftimesh {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ========================================================= */
+        /* 3. PËRSHTATJA PËR CELULAR (NDËRHYRJA VETËM TE FB)         */
+        /* ========================================================= */
+        @media (max-width: 767px) {
+            
+            /* Bllokim i hekurt i gjerësisë vetëm për Facebook */
+            .fb-carousel-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                overflow-x: hidden !important; /* <--- Kjo ndalon daljen jashtë ekranit */
+                box-sizing: border-box !important;
+            }
+
+            .juicer-iframe-wrapper {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+                box-sizing: border-box !important;
+            }
+
+            .juicer-iframe-wrapper iframe {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 480px !important; 
+                border-radius: 4px;
+                box-sizing: border-box !important;
+            }
+
+            /* Aktivizojmë shtresën e padukshme vetëm në celular */
+            .fb-touch-overlay {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 10;
+                background: transparent;
+            }
+
+            /* STILI YT I KARTAVE TË NJOFTIMEVE (100% I PAPREKUR) */
+            .njoftim-card {
+                width: 300px;
+                margin: 0 10px;
+                padding: 12px;
+            }
+            .njoftim-content h3 {
+                font-size: 14px;
+            }
+            .njoftim-content p {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Skripti i Facebook -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/sq_AL/sdk.js#xfbml=1&version=v19.0" nonce="GjenEratOr"></script>
 
     <!-- Navbar -->
     <nav class="navbar navbar-custom">
@@ -41,16 +223,17 @@
         </div>
     </nav>
 
-    <!-- Përmbajtja Kryesore -->
     <main class="main-content">
-        <section class="njoftime-section">
+        <section class="njoftime-section" style="padding-top: 10px; background-color: transparent; box-shadow: none;">
             
-            <div class="section-header">
+            <div class="section-header text-center" style="margin-bottom: 35px;">
                 <h2>Lajmet e fundit</h2>
                 <div class="underline"></div>
             </div>
 
-            <!-- SEKSIONI 1: Facebook Carousel (I mbledhur) -->
+            <!-- ========================================================= -->
+            <!-- 1. CAROUSEL AUTOMATIK I FB                                -->
+            <!-- ========================================================= -->
             <div class="row" style="margin-bottom: 75px;">
                 <div class="col-xs-12">
                     
@@ -59,34 +242,36 @@
                     </div>
 
                     <div class="fb-carousel-container">
-                        <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+                        <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                             
                             <ol class="carousel-indicators">
                                 <li data-target="#facebookJuicerCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#facebookJuicerCarousel" data-slide-to="1"></li>
-                                <li data-target="#facebookJuicerCarousel" data-slide-to="2"></li>
                             </ol>
 
                             <div class="carousel-inner" role="listbox">
                                 
                                 <div class="item active">
-                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ZVAP Kurbin</div>
-                                    <div class="fb-wrapper">
-                                        <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100064178460927" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"></div>
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP dhe ZVAP Kurbin</div>
+                                    <div class="juicer-iframe-wrapper">
+                                        <div class="fb-touch-overlay"></div>
+                                        <iframe 
+                                            src="https://www.juicer.io/api/feeds/arsimiparauniversitar/iframe" 
+                                            frameborder="0" 
+                                            title="arsimiparauniversitar - Juicer social media feed">
+                                        </iframe>
                                     </div>
                                 </div>
 
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP</div>
-                                    <div class="fb-wrapper">
-                                        <div class="fb-page" data-href="https://www.facebook.com/ASCAP2020" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"></div>
-                                    </div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP</div>
-                                    <div class="fb-wrapper">
-                                        <div class="fb-page" data-href="https://www.facebook.com/arsimiparauniversitar" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"></div>
+                                    <div class="juicer-iframe-wrapper">
+                                        <div class="fb-touch-overlay"></div>
+                                        <iframe 
+                                            src="https://www.juicer.io/api/feeds/ascap2020/iframe" 
+                                            frameborder="0" 
+                                            title="ASCAP2020 - Juicer social media feed">
+                                        </iframe>
                                     </div>
                                 </div>
 
@@ -97,7 +282,10 @@
                 </div>
             </div>
 
-            <!-- SEKSIONI 2: Shiriti Lëvizës me Njoftime (I PAPREKUR) -->
+
+            <!-- ========================================================= -->
+            <!-- 2. SHIRITI LËVIZËS I NJOFTIMEVE (I PAPREKUR)              -->
+            <!-- ========================================================= -->
             <div class="row">
                 <div class="col-xs-12">
                     
@@ -109,6 +297,7 @@
                         <div class="shirit-njoftime-wrapper">
                             <div class="shirit-njoftime-track">
                                 
+                                <!-- SETI 1 -->
                                 <article class="njoftim-card">
                                     <div class="njoftim-date">12 Maj 2026</div> 
                                     <div class="njoftim-content">
@@ -136,7 +325,7 @@
                                     </div>
                                 </article>
 
-                                <!-- Përsëritja e kartave për loop -->
+                                <!-- SETI 2 -->
                                 <article class="njoftim-card">
                                     <div class="njoftim-date">12 Maj 2026</div> 
                                     <div class="njoftim-content">
@@ -174,27 +363,36 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Gjimnazi Milot. Të gjitha të drejtat të rezervuara.</p>
         <p><a href="mailto:milotgjimnazi@yahoo.com">Email: milotgjimnazi@yahoo.com</a></p>
     </footer>
 
-    <!-- Skriptet -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script>
         $(document).ready(function() {
             var dynamicCarousel = $('#facebookJuicerCarousel');
-            dynamicCarousel.carousel({ interval: 6000, pause: "hover" });
-            $('.fb-wrapper').on('touchstart click', function() { dynamicCarousel.carousel('pause'); });
-            dynamicCarousel.on('slide.bs.carousel', function (e) {
-                var $nextSlide = $(e.relatedTarget);
-                if (!$nextSlide.data('fb-loaded') && typeof FB !== 'undefined') {
-                    FB.XFBML.parse($nextSlide[0], function() { $nextSlide.data('fb-loaded', true); });
-                }
+
+            $('.fb-touch-overlay').on('touchstart click', function(e) {
+                e.preventDefault(); 
+                dynamicCarousel.carousel('pause'); 
+                $('.fb-touch-overlay').hide(); 
+
+                setTimeout(function() {
+                    if ($('.fb-touch-overlay').is(':hidden')) {
+                        $('.fb-touch-overlay').show();
+                        dynamicCarousel.carousel('cycle');
+                    }
+                }, 8000); 
+            });
+
+            dynamicCarousel.on('slide.bs.carousel', function () {
+                $('.fb-touch-overlay').show();
             });
         });
     </script>
+
 </body>
 </html>
