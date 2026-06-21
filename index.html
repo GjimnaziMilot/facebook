@@ -6,7 +6,6 @@
     <title>Gjimnazi Milot - Njoftime</title>
 
     <link class="jsbin" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="njoftfb.css">
 
     <style>
@@ -20,12 +19,13 @@
             position: relative;
         }
 
-        /* Qendërzimi i shtojcës së Facebook */
+        /* Qendërzimi i shtojcës së Facebook dhe ngrirja e lartësisë */
         .fb-wrapper {
             display: flex;
             justify-content: center;
             width: 100%;
-            overflow: hidden;
+            height: 630px; /* <--- Lartësia e fiksuar */
+            overflow-y: auto; /* <--- Mundëson scroll brenda kutisë nëse postimi është i gjatë */
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -201,7 +201,7 @@
                     </div>
 
                     <div class="fb-carousel-container">
-                        <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                        <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
                             
                             <ol class="carousel-indicators">
                                 <li data-target="#facebookJuicerCarousel" data-slide-to="0" class="active"></li>
@@ -218,7 +218,7 @@
                                              data-href="https://www.facebook.com/profile.php?id=100064178460927" 
                                              data-tabs="timeline" 
                                              data-width="350" 
-                                             data-height="45000" 
+                                             data-height="600" 
                                              data-small-header="false" 
                                              data-adapt-container-width="true" 
                                              data-hide-cover="false" 
@@ -354,9 +354,9 @@
         $(document).ready(function() {
             var dynamicCarousel = $('#facebookJuicerCarousel');
 
-            // Ndalo karuselin nëse përdoruesi kalon mausin (për kompjuter)
+            // Ndalo karuselin nëse përdoruesi kalon mausin (për kompjuter) dhe e rritëm kohën
             dynamicCarousel.carousel({
-                interval: 3000,
+                interval: 6000,
                 pause: "hover"
             });
 
@@ -365,10 +365,14 @@
                 dynamicCarousel.carousel('pause');
             });
 
-            // Rifresko Facebook Plugin kur ndërrohet sllajdi
-            dynamicCarousel.on('slid.bs.carousel', function () {
-                if (typeof FB !== 'undefined') {
-                    FB.XFBML.parse(this);
+            // Bëj parse Facebook-un VETËM herën e parë që shfaqet sllajdi
+            dynamicCarousel.on('slide.bs.carousel', function (e) {
+                var $nextSlide = $(e.relatedTarget);
+                
+                if (!$nextSlide.data('fb-loaded') && typeof FB !== 'undefined') {
+                    FB.XFBML.parse($nextSlide[0], function() {
+                        $nextSlide.data('fb-loaded', true);
+                    });
                 }
             });
         });
