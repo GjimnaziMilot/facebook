@@ -7,7 +7,7 @@
 
     <link class="jsbin" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="njoftfb.css">
+    <link rel="stylesheet" href="njof.css">
 
     <style>
         /* ========================================================= */
@@ -30,8 +30,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             overflow: hidden; /* Mban IFrame brenda kornizës */
             position: relative;
-            
-            /* Sigurohet që hapësira të jetë e zënë para se të ngarkohet FB */
             display: block;
         }
 
@@ -132,7 +130,7 @@
             transition: background 0.1s ease;
         }
 
-         .njoftim-content a:hover .tag,
+        .njoftim-content a:hover .tag,
         .njoftim-content a:active .tag,
         .njoftim-content .tag:hover,
         .njoftim-content .tag:active {
@@ -154,7 +152,6 @@
                 padding: 0 5px !important; 
             }
             
-            /* Përshtatja e lartësisë në celular nëse duhet */
             .fb-fixed-wrapper {
                 height: 550px;
             }
@@ -220,11 +217,27 @@
                                 <li data-target="#facebookInstitucioneCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#facebookInstitucioneCarousel" data-slide-to="1"></li>
                                 <li data-target="#facebookInstitucioneCarousel" data-slide-to="2"></li>
+                                <li data-target="#facebookInstitucioneCarousel" data-slide-to="3"></li>
                             </ol>
 
                             <div class="carousel-inner" role="listbox">
                                 
                                 <div class="item active">
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: Gjimnazi Milot</div>
+                                    <div class="fb-fixed-wrapper">
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgjimnazi.milot&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="500" 
+                                                height="600" 
+                                                style="border:none;overflow:hidden" 
+                                                scrolling="no" 
+                                                frameborder="0" 
+                                                allowfullscreen="true" 
+                                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                        </iframe>
+                                    </div>
+                                </div>
+
+                                <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ZVAP Kurbin</div>
                                     <div class="fb-fixed-wrapper">
                                         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064178460927&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
@@ -370,7 +383,7 @@
                 pause: "hover"
             });
 
-            // Ndalo karuselin nëse përdoruesi prek zonën e IFrame në celular
+            // Ndalo karuselin nëse përdoruesi prek zonën e kornizave në celular
             $('.fb-fixed-wrapper').on('touchstart click', function() {
                 dynamicCarousel.carousel('pause');
             });
