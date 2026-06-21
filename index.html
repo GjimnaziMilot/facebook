@@ -6,13 +6,11 @@
     <title>Gjimnazi Milot - Njoftime</title>
 
     <link class="jsbin" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="njof.css">
 
     <style>
-        /* =========================
-           NAVBAR
-        ========================= */
-        .navbar.navbar-custom {
+.navbar.navbar-custom {
             background-color: #1a2a6c;
             border: none;
             border-radius: 0;
@@ -22,6 +20,8 @@
             width: 100%;
         }
 
+        /* Container */
+
         .navbar-custom .container {
             max-width: 1200px;
             margin: auto;
@@ -29,11 +29,15 @@
             width: 100%;
         }
 
+        /* Logo */
+
         .navbar-custom .navbar-brand {
             color: #ffffff !important;
             font-size: 20px;
             font-weight: 600;
         }
+
+        /* Linket */
 
         .navbar-custom .navbar-nav > li > a {
             color: #ffffff !important;
@@ -43,11 +47,15 @@
             transition: 0.3s;
         }
 
+        /* Hover */
+
         .navbar-custom .navbar-nav > li > a:hover {
             background-color: #243b55 !important;
             color: #ffffff !important;
             border-radius: 4px;
         }
+
+        /* Linku aktiv */
 
         .navbar-custom .navbar-nav > .active > a,
         .navbar-custom .navbar-nav > .active > a:hover {
@@ -55,6 +63,8 @@
             color: #ffffff !important;
             border-radius: 4px;
         }
+
+        /* Hamburger menu */
 
         .navbar-custom .navbar-toggle {
             border: none;
@@ -65,21 +75,23 @@
         .navbar-custom .icon-bar {
             background-color: #ffffff !important;
         }
-
-        /* =========================
+  /* =========================
            NJOFTIMET
         ========================= */
+
         .main-content {
             width: 90%;
             max-width: 1000px;
             margin: 40px auto;
         }
+     /* Container kartash */
 
         .njoftime-container {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
+        /* Kartat */
 
         .njoftim-card {
             display: flex;
@@ -90,10 +102,10 @@
             overflow: hidden;
             transition: 0.3s;
         }
-
         /* =========================
            FOOTER
         ========================= */
+
         .footer {
             background-color: #000000;
             color: #ffffff;
@@ -116,21 +128,22 @@
         .footer a:hover {
             text-decoration: underline;
         }
-        
         .njoftim-content a {
             text-decoration: none;
             color: #1a2a6c;
         }
-
+        /* kjo është për ngjyrën e kuqe kur klikojmë mbi të */
         .tag:hover {
             background-color: red;
             color: white;
         }
-
-        a, a:focus, a:active {
+        /*kjo është për të hqur outline-in (vija e zezë border tek kutia viti 
+        shkollor-shiko më shumë)*/
+        a,
+        a:focus,
+        a:active {
             outline: none;
         }
-
         /* ========================================================= */
         /* SHIRITI LËVIZËS                                           */
         /* ========================================================= */
@@ -166,10 +179,8 @@
             border-radius: 6px;
             padding: 15px 20px;
             border-top: 4px solid #1a2a6c;
-            border-left: none; /* Hiqet borderi majtas për shiritin */
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             text-align: left;
-            display: block; /* Ndryshuar nga flex për kartat e shiritit */
         }
 
         .njoftim-date {
@@ -177,10 +188,6 @@
             color: #888;
             font-weight: bold;
             margin-bottom: 5px;
-        }
-
-        .njoftim-content {
-            padding: 0; /* Hequr paddingu shtesë që ishte më parë */
         }
 
         .njoftim-content h3 {
@@ -206,7 +213,6 @@
             display: inline-block;
             text-decoration: none;
             transition: background 0.1s ease;
-            margin-top: 5px;
         }
 
          .njoftim-content a:hover .tag,
@@ -222,16 +228,14 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* ========================================================= */
+      /* ========================================================= */
         /* RREGULLIMI I FACEBOOK IFRAME                              */
         /* ========================================================= */
         
-        /* Blloku që mban karuselin - Qendërzimi i plotë */
         .fb-carousel-container {
             width: 100%;
             max-width: 450px; 
-            margin: 0 auto; /* Kjo e vendos në qendër të faqes */
-            position: relative;
+            margin: 0 auto; /* E vendos në qendër */
         }
 
         .fb-fixed-wrapper {
@@ -241,9 +245,8 @@
             overflow: hidden;
         }
 
-        /* Siguron që Facebook iframe të përshtatet në çdo ekran celulari */
         .fb-fixed-wrapper iframe {
-            max-width: 100%;
+            max-width: 100%; /* Shmang daljen nga ekrani në celular */
         }
 
         /* ========================================================= */
@@ -318,8 +321,8 @@
                                 <div class="item active">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ZVAP Kurbin</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064178460927&tabs=timeline&width=450&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="350" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064178460927&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="450" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
@@ -333,8 +336,8 @@
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FASCAP2020&tabs=timeline&width=450&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="350" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FASCAP2020&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="450" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
@@ -346,136 +349,4 @@
                                 </div>
 
                                 <div class="item">
-                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP</div>
-                                    <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Farsimiparauniversitar&tabs=timeline&width=450&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="350" 
-                                                height="600" 
-                                                style="border:none;overflow:hidden" 
-                                                scrolling="no" 
-                                                frameborder="0" 
-                                                allowfullscreen="true" 
-                                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                                        </iframe>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div> </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    
-                    <div class="text-center" style="margin-bottom: 15px; color: #1a2a6c; font-size: 22px; font-weight: bold;">
-                        Njoftime të fundit
-                    </div>
-                    
-                    <div class="shirit-njoftime-kontainer-madh">
-                        <div class="shirit-njoftime-wrapper">
-                            <div class="shirit-njoftime-track">
-                                
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">12 Maj 2026</div> 
-                                    <div class="njoftim-content">
-                                        <h3>Viti shkollor 2026-2027</h3>
-                                        <p>Sezoni i ri mësimor fillon zyrtarisht më 14 shtator 2026 dhe përfundon më 18 qershor 2027.</p>
-                                        <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">5-7 Maj 2026</div>
-                                    <div class="njoftim-content">
-                                        <h3>Aplikimi A1 dhe A1Z</h3>
-                                        <p>Informojmë maturantët se procesi i aplikimit do të kryhet gjatë fashës orare.</p>
-                                        <a href="Urdher A1.pdf" target="_blank"><span class="tag">Matura-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">Shkurt 2026</div>
-                                    <div class="njoftim-content">
-                                        <h3>Pajisja me Laptopë</h3>
-                                        <p>Gjimnazi Milot përfiton pajisje teknologjike falë Shkollës së Drejtorëve.</p>
-                                        <a href="https://www.facebook.com/share/p/1GvK9qaRkK/" target="_blank"><span class="tag">Teknologji-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">12 Maj 2026</div> 
-                                    <div class="njoftim-content">
-                                        <h3>Viti shkollor 2026-2027</h3>
-                                        <p>Sezoni i ri mësimor fillon zyrtarisht më 14 shtator 2026 dhe përfundon më 18 qershor 2027.</p>
-                                        <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">5-7 Maj 2026</div>
-                                    <div class="njoftim-content">
-                                        <h3>Aplikimi A1 dhe A1Z</h3>
-                                        <p>Informojmë maturantët se procesi i aplikimit do të kryhet gjatë fashës orare.</p>
-                                        <a href="Urdher A1.pdf" target="_blank"><span class="tag">Matura-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">Shkurt 2026</div>
-                                    <div class="njoftim-content">
-                                        <h3>Pajisja me Laptopë</h3>
-                                        <p>Gjimnazi Milot përfiton pajisje teknologjike falë Shkollës së Drejtorëve.</p>
-                                        <a href="https://www.facebook.com/share/p/1GvK9qaRkK/" target="_blank"><span class="tag">Teknologji-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>&copy; 2026 Gjimnazi Milot. Të gjitha të drejtat të rezervuara.</p>
-        <p><a href="mailto:milotgjimnazi@yahoo.com">Email: milotgjimnazi@yahoo.com</a></p>
-    </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var dynamicCarousel = $('#facebookInstitucioneCarousel');
-            var pauseTimer; // Variabli për kohëmatësin e 8 sekondave
-
-            dynamicCarousel.carousel({
-                interval: 3000,
-                pause: "hover"
-            });
-
-            // Kur përdoruesi e klikon/prek bllokun e Facebook
-            $('.fb-fixed-wrapper, .fb-carousel-container').on('touchstart click', function() {
-                
-                // 1. Ndaloje karuselin nga lëvizja
-                dynamicCarousel.carousel('pause');
-                
-                // 2. Fshi çdo timer të vjetër nëse personi po klikon disa herë rrjesht
-                clearTimeout(pauseTimer);
-                
-                // 3. Fillo një timer të ri që e lëviz prapë pas 8 sekondash (8000 ms)
-                pauseTimer = setTimeout(function() {
-                    dynamicCarousel.carousel('cycle');
-                }, 8000);
-                
-            });
-        });
-    </script>
-
-</body>
-</html>
+                                    <div class="text-center
