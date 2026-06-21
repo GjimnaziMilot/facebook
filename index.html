@@ -7,11 +7,62 @@
 
     <link class="jsbin" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="njoftfb.css">
+    <link rel="stylesheet" href="njo.css">
+</head>
+
+<body>
 
     <style>
         /* ========================================================= */
-        /* SHIRITI LËVIZËS                                           */
+        /* STILIZIMI I NAVBAR                                        */
+        /* ========================================================= */
+        .navbar-custom {
+            background-color: #1a2a6c;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-nav > li > a {
+            color: #ffffff;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .navbar-custom .navbar-nav > li > a:hover,
+        .navbar-custom .navbar-nav > li.active > a {
+            background-color: #ff1911 !important;
+            color: #ffffff !important;
+        }
+        .navbar-custom .navbar-toggle {
+            border-color: #ffffff;
+        }
+        .navbar-custom .navbar-toggle .icon-bar {
+            background-color: #ffffff;
+        }
+
+        /* ========================================================= */
+        /* STILIZIMI I FOOTER                                        */
+        /* ========================================================= */
+        .footer-custom {
+            background-color: #1a2a6c;
+            color: #ffffff;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+            border-top: 4px solid #ff1911;
+        }
+        .footer-custom a {
+            color: #ff1911;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer-custom a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* ========================================================= */
+        /* SHIRITI LËVIZËS I NJOFTIMEVE                              */
         /* ========================================================= */
         .shirit-njoftime-kontainer-madh {
             width: 100%;
@@ -81,7 +132,7 @@
             transition: background 0.1s ease;
         }
 
-         .njoftim-content a:hover .tag,
+        .njoftim-content a:hover .tag,
         .njoftim-content a:active .tag,
         .njoftim-content .tag:hover,
         .njoftim-content .tag:active {
@@ -100,7 +151,7 @@
         .fb-fixed-wrapper {
             width: 100%;
             display: flex;
-            justify-content: center; /* I mban iframe-t në mes të ekranit */
+            justify-content: center;
             overflow: hidden;
         }
 
@@ -121,9 +172,6 @@
             }
         }
     </style>
-</head>
-
-<body>
 
     <nav class="navbar navbar-custom">
         <div class="container">
@@ -301,7 +349,7 @@
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer-custom">
         <p>&copy; 2026 Gjimnazi Milot. Të gjitha të drejtat të rezervuara.</p>
         <p><a href="mailto:milotgjimnazi@yahoo.com">Email: milotgjimnazi@yahoo.com</a></p>
     </footer>
