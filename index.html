@@ -11,7 +11,76 @@
 <body>
 
     <style>
-   
+      /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar.navbar-custom {
+            background-color: #1a2a6c;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 0;
+            padding: 15px 0;
+            position: static;
+            width: 100%;
+        }
+
+        /* Container */
+
+        .navbar-custom .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* Logo */
+
+        .navbar-custom .navbar-brand {
+            color: #ffffff !important;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* Linket */
+
+        .navbar-custom .navbar-nav > li > a {
+            color: #ffffff !important;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 15px 14px;
+            transition: 0.3s;
+        }
+
+        /* Hover */
+
+        .navbar-custom .navbar-nav > li > a:hover {
+            background-color: #243b55 !important;
+            color: #ffffff !important;
+            border-radius: 4px;
+        }
+
+        /* Linku aktiv */
+
+        .navbar-custom .navbar-nav > .active > a,
+        .navbar-custom .navbar-nav > .active > a:hover {
+            background-color: #243b55 !important;
+            color: #ffffff !important;
+            border-radius: 4px;
+        }
+
+        /* Hamburger menu */
+
+        .navbar-custom .navbar-toggle {
+            border: none;
+            background: transparent !important;
+            margin-top: 10px;
+        }
+
+        .navbar-custom .icon-bar {
+            background-color: #ffffff !important;
+        }
+
         /* ========================================================= */
         /* SHTESAT PËR KODET E REJA (FB IFRAME & SHIRITI LËVIZËS)    */
         /* ========================================================= */
