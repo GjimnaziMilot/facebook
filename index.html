@@ -11,7 +11,7 @@
 
     <style>
         /* ========================================================= */
-        /* SHIRITI LËVIZËS ME STILIN TËND TË KARTAVE                 */
+        /* SHIRITI LËVIZËS                                           */
         /* ========================================================= */
         .shirit-njoftime-kontainer-madh {
             width: 100%;
@@ -95,18 +95,13 @@
         }
 
         /* ========================================================= */
-        /* RREGULLIMI I FACEBOOK IFRAME PËR CELULAR                  */
+        /* RREGULLIMI I FACEBOOK IFRAME (Zvogëluar në 340px)         */
         /* ========================================================= */
         .fb-fixed-wrapper {
             width: 100%;
-            max-width: 500px; /* E mban deri në 500px në ekrane të mëdha */
-            margin: 0 auto; /* E qendron në mes */
+            display: flex;
+            justify-content: center; /* I mban iframe-t në mes të ekranit */
             overflow: hidden;
-        }
-
-        .fb-fixed-wrapper iframe {
-            width: 100% !important;
-            max-width: 100%;
         }
 
         /* ========================================================= */
@@ -181,8 +176,8 @@
                                 <div class="item active">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ZVAP Kurbin</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064178460927&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="500" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100064178460927&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="340" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
@@ -196,8 +191,8 @@
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FASCAP2020&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="500" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FASCAP2020&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="340" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
@@ -211,8 +206,8 @@
                                 <div class="item">
                                     <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Farsimiparauniversitar&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                                                width="500" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Farsimiparauniversitar&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="340" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
                                                 scrolling="no" 
