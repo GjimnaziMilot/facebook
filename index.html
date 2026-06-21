@@ -7,12 +7,11 @@
 
     <link class="jsbin" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Lidhja me skedarin tënd CSS -->
     <link rel="stylesheet" href="njof.css">
 
     <style>
         /* ========================================================= */
-        /* STILIMI PËR CAROUSEL-IN E FACEBOOK (VETËM ME PIKA)        */
+        /* STILIMI PËR CAROUSEL-IN E FACEBOOK                        */
         /* ========================================================= */
         .fb-carousel-container {
             max-width: 1000px; 
@@ -161,11 +160,9 @@
 
 <body>
 
-    <!-- Skripti Zyrtar i Facebook SDK (Ngarkon postimet në kohë reale) -->
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/sq_AL/sdk.js#xfbml=1&version=v19.0" nonce="GjenEratOr"></script>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-custom">
         <div class="container">
             <div class="navbar-header">
@@ -196,9 +193,6 @@
                 <div class="underline"></div>
             </div>
 
-            <!-- ========================================================= -->
-            <!-- 1. CAROUSEL AUTOMATIK (VETËM ME PIKA POSHTË)               -->
-            <!-- ========================================================= -->
             <div class="row" style="margin-bottom: 75px;">
                 <div class="col-xs-12">
                     
@@ -207,24 +201,21 @@
                     </div>
 
                     <div class="fb-carousel-container">
-                        <!-- Intervali është vendosur në 6000ms (6 sekonda) për t'i lënë kohë përdoruesit të lexojë lajmin -->
-                        <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+                        <div id="facebookJuicerCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                             
-                            <!-- 2 Pikat treguese poshtë -->
                             <ol class="carousel-indicators">
                                 <li data-target="#facebookJuicerCarousel" data-slide-to="0" class="active"></li>
                                 <li data-target="#facebookJuicerCarousel" data-slide-to="1"></li>
+                                <li data-target="#facebookJuicerCarousel" data-slide-to="2"></li>
                             </ol>
 
-                            <!-- Sllajdet me kodin zyrtar të Facebook -->
                             <div class="carousel-inner" role="listbox">
                                 
-                                <!-- Sllajdi 1: Arsimi Parauniversitar -->
                                 <div class="item active">
-                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP dhe ZVAP Kurbin</div>
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ZVAP Kurbin</div>
                                     <div class="fb-wrapper">
                                         <div class="fb-page" 
-                                             data-href="https://www.facebook.com/arsimiparauniversitar" 
+                                             data-href="https://www.facebook.com/profile.php?id=100064178460927" 
                                              data-tabs="timeline" 
                                              data-width="500" 
                                              data-height="600" 
@@ -236,12 +227,27 @@
                                     </div>
                                 </div>
 
-                                <!-- Sllajdi 2: ASCAP 2020 -->
                                 <div class="item">
-                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP </div>
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: ASCAP</div>
                                     <div class="fb-wrapper">
                                         <div class="fb-page" 
-                                             data-href="https://www.facebook.com/ascap2020" 
+                                             data-href="https://www.facebook.com/ASCAP2020" 
+                                             data-tabs="timeline" 
+                                             data-width="500" 
+                                             data-height="600" 
+                                             data-small-header="false" 
+                                             data-adapt-container-width="true" 
+                                             data-hide-cover="false" 
+                                             data-show-facepile="false">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP</div>
+                                    <div class="fb-wrapper">
+                                        <div class="fb-page" 
+                                             data-href="https://www.facebook.com/arsimiparauniversitar" 
                                              data-tabs="timeline" 
                                              data-width="500" 
                                              data-height="600" 
@@ -261,9 +267,6 @@
                 </div>
             </div>
 
-            <!-- ========================================================= -->
-            <!-- 2. SHIRITI LËVIZËS I NJOFTIMEVE                            -->
-            <!-- ========================================================= -->
             <div class="row">
                 <div class="col-xs-12">
                     
@@ -275,7 +278,6 @@
                         <div class="shirit-njoftime-wrapper">
                             <div class="shirit-njoftime-track">
                                 
-                                <!-- SETI 1 -->
                                 <article class="njoftim-card">
                                     <div class="njoftim-date">12 Maj 2026</div> 
                                     <div class="njoftim-content">
@@ -303,7 +305,6 @@
                                     </div>
                                 </article>
 
-                                <!-- SETI 2 -->
                                 <article class="njoftim-card">
                                     <div class="njoftim-date">12 Maj 2026</div> 
                                     <div class="njoftim-content">
@@ -349,17 +350,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- Skript i ri që sigurohet se Facebook Plugin rifreskohet saktë kur ndërrohet sllajdi -->
     <script>
         $(document).ready(function() {
             var dynamicCarousel = $('#facebookJuicerCarousel');
 
-            // Ndalo karuselin nëse përdoruesi ka shkuar me maus sipër (për të lexuar pa u ndërprerë)
+            // Ndalo karuselin nëse përdoruesi kalon mausin (për kompjuter)
             dynamicCarousel.carousel({
+                interval: 3000,
                 pause: "hover"
             });
 
-            // Ky skript ndihmon që nëse sllajdi ndërrohet, kutia e Facebook të mos shfaqet bosh
+            // Ndalo karuselin nëse përdoruesi prek zonën (për celular)
+            $('.fb-wrapper').on('touchstart click', function() {
+                dynamicCarousel.carousel('pause');
+            });
+
+            // Rifresko Facebook Plugin kur ndërrohet sllajdi
             dynamicCarousel.on('slid.bs.carousel', function () {
                 if (typeof FB !== 'undefined') {
                     FB.XFBML.parse(this);
