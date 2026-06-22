@@ -522,23 +522,39 @@
     <script>
         $(document).ready(function() {
             var dynamicCarousel = $('#facebookInstitucioneCarousel');
-            var pauseTimeout; // Variabël për të mbajtur kohëmatësin
+            var pauseTimeout; 
 
             dynamicCarousel.carousel({
                 interval: 3000,
                 pause: "hover"
             });
 
-            $('.fb-fixed-wrapper').on('touchstart click', function() {
-                dynamicCarousel.carousel('pause'); // Ndalon menjëherë karoselin
-                
-                clearTimeout(pauseTimeout); // Fshin kohëmatësin e mëparshëm nëse klikohet sërish
-                
-                // Pas 8000 milisekondash (8 sekonda), karoseli rifillon automatikisht lëvizjen
+            // Funksioni që ekzekuton ndalimin e saktë prej 8 sekondash
+            function ndaloKaroselin8s() {
+                dynamicCarousel.carousel('pause');
+                clearTimeout(pauseTimeout);
                 pauseTimeout = setTimeout(function() {
                     dynamicCarousel.carousel('cycle');
                 }, 8000);
+            }
+
+            // Për klikimet rreth e rrotull iframe-it (tek titujt ose hapësirat boshe)
+            $('.fb-fixed-wrapper, .item').on('touchstart click', function() {
+                ndaloKaroselin8s();
             });
+
+            // ZGJIDHJA SPECIFIKE PËR CELULAR (Detektimi i klikimit brenda Facebook iframe)
+            // Çdo 300 milisekonda kontrollohet nëse përdoruesi ka fokusuar/prekur iframe-in e Facebook-ut
+            setInterval(function() {
+                var aktivi = document.activeElement;
+                if (aktivi && aktivi.tagName === 'IFRAME') {
+                    // Kontrollojmë nëse iframe që ka marrë fokusin ndodhet brenda karoselit tonë
+                    if ($(aktivi).closest('#facebookInstitucioneCarousel').length > 0) {
+                        ndaloKaroselin8s();
+                        window.focus(); // Kthejmë fokusin tek faqja kryesore që të kapet saktë edhe klikimi tjetër radhës
+                    }
+                }
+            }, 300);
         });
     </script>
 
