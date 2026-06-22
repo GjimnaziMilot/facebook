@@ -330,6 +330,23 @@
                 width: 320px; /* Zvogëlohet në celular që të përshtatet në ekran */
             }
         }
+        
+        /* Button Style per AKAP */
+        .btn-fb-custom {
+            background-color: #1877f2;
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-fb-custom:hover {
+            background-color: #166fe5;
+            box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
+        }
     </style>
 
     <nav class="navbar navbar-custom">
@@ -412,18 +429,17 @@
                                 </div>
 
                                 <div class="item">
-                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: AKAP</div>
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: Ministria e Arsimit dhe Sportit</div>
                                     <div class="fb-fixed-wrapper">
-                                        <div style="width: 350px; height: 600px; background-color: #f0f2f5; border: 1px solid #e5e5e5; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px; text-align: center;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#1877f2" viewBox="0 0 16 16" style="margin-bottom: 20px;">
-                                              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
-                                            </svg>
-                                            <h4 style="color: #1c1e21; font-weight: bold; font-size: 18px; margin-bottom: 15px;">Faqja Zyrtare e AKAP</h4>
-                                            <p style="color: #65676b; font-size: 14px; margin-bottom: 25px; line-height: 1.5;">Për shkak të cilësimeve të privatësisë, njoftimet e këtij institucioni nuk mund të shfaqen brenda kornizës.</p>
-                                            <a href="https://www.facebook.com/arsimiparauniversitar" target="_blank" class="btn-fb-custom">
-                                                Shiko Njoftimet
-                                            </a>
-                                        </div>
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMinistriaArsimSport&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                                width="350" 
+                                                height="600" 
+                                                style="border:none;overflow:hidden" 
+                                                scrolling="no" 
+                                                frameborder="0" 
+                                                allowfullscreen="true" 
+                                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                        </iframe>
                                     </div>
                                 </div>
                                 <div class="item">
@@ -542,7 +558,6 @@
                 pause: "hover"
             });
 
-            // Funksioni që ekzekuton ndalimin e saktë prej 8 sekondash
             function ndaloKaroselin8s() {
                 dynamicCarousel.carousel('pause');
                 clearTimeout(pauseTimeout);
@@ -551,20 +566,16 @@
                 }, 8000);
             }
 
-            // Për klikimet rreth e rrotull iframe-it (tek titujt ose hapësirat boshe)
             $('.fb-fixed-wrapper, .item').on('touchstart click', function() {
                 ndaloKaroselin8s();
             });
 
-            // ZGJIDHJA SPECIFIKE PËR CELULAR (Detektimi i klikimit brenda Facebook iframe)
-            // Çdo 300 milisekonda kontrollohet nëse përdoruesi ka fokusuar/prekur iframe-in e Facebook-ut
             setInterval(function() {
                 var aktivi = document.activeElement;
                 if (aktivi && aktivi.tagName === 'IFRAME') {
-                    // Kontrollojmë nëse iframe që ka marrë fokusin ndodhet brenda karoselit tonë
                     if ($(aktivi).closest('#facebookInstitucioneCarousel').length > 0) {
                         ndaloKaroselin8s();
-                        window.focus(); // Kthejmë fokusin tek faqja kryesore që të kapet saktë edhe klikimi tjetër radhës
+                        window.focus(); 
                     }
                 }
             }, 300);
