@@ -233,8 +233,7 @@
             color: white;
         }
 
-        /*kjo është për të hequr outline-in (vija e zezë border tek kutia viti 
-        shkollor-shiko më shumë)*/
+        /*kjo është për të hequr outline-in*/
         a,
         a:focus,
         a:active {
@@ -304,7 +303,7 @@
             display: flex;
             width: max-content;
             animation: rrjedhshmeriNjoftimesh 30s linear infinite;
-            gap: 20px; /* Hapësira mes kartave në lëvizje */
+            gap: 20px;
         }
 
         .shirit-njoftime-wrapper:hover .shirit-njoftime-track,
@@ -313,7 +312,6 @@
             -webkit-animation-play-state: paused !important;
         }
 
-        /* Përshtatja e gjerësisë së kartës TËNDE kur ndodhet brenda shiritit lëvizës */
         .shirit-njoftime-track .njoftim-card {
             width: 550px; 
             flex-shrink: 0;
@@ -327,25 +325,8 @@
 
         @media (max-width: 768px) {
             .shirit-njoftime-track .njoftim-card {
-                width: 320px; /* Zvogëlohet në celular që të përshtatet në ekran */
+                width: 320px;
             }
-        }
-        
-        /* Button Style per AKAP */
-        .btn-fb-custom {
-            background-color: #1877f2;
-            color: white !important;
-            padding: 12px 25px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 15px;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .btn-fb-custom:hover {
-            background-color: #166fe5;
-            box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
         }
     </style>
 
@@ -389,6 +370,7 @@
                     <div class="fb-carousel-container">
                         <div id="facebookInstitucioneCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                             
+                            <!-- U rikthye treguesi i katërt (data-slide-to="3") -->
                             <ol class="carousel-indicators" style="bottom: -40px;">
                                 <li data-target="#facebookInstitucioneCarousel" data-slide-to="0" class="active" style="border-color: #1a2a6c;"></li>
                                 <li data-target="#facebookInstitucioneCarousel" data-slide-to="1" style="border-color: #1a2a6c;"></li>
@@ -429,9 +411,9 @@
                                 </div>
 
                                 <div class="item">
-                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: Ministria e Arsimit dhe Sportit</div>
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: Gjimnazi Milot</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMinistriaArsimSport&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgjimnazi.milot&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
                                                 width="350" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
@@ -442,10 +424,12 @@
                                         </iframe>
                                     </div>
                                 </div>
+
+                                <!-- KARTA E RE: Shkolla e Drejtorëve -->
                                 <div class="item">
-                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: Gjimnazi Milot</div>
+                                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px; color: #555;">Burimi: Shkolla e Drejtorëve</div>
                                     <div class="fb-fixed-wrapper">
-                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgjimnazi.milot&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fshkollaedrejtoreve&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
                                                 width="350" 
                                                 height="600" 
                                                 style="border:none;overflow:hidden" 
