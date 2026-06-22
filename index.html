@@ -170,7 +170,7 @@
             color: #444;
         }
 
-        /* Tag (NDRYSHUAR: Ngjyra blu dhe shkrimi i bardhë si te fotoja e parë) */
+        /* Tag */
 
         .tag {
             display: inline-block;
@@ -522,6 +522,7 @@
     <script>
         $(document).ready(function() {
             var dynamicCarousel = $('#facebookInstitucioneCarousel');
+            var pauseTimeout; // Variabël për të mbajtur kohëmatësin
 
             dynamicCarousel.carousel({
                 interval: 3000,
@@ -529,7 +530,14 @@
             });
 
             $('.fb-fixed-wrapper').on('touchstart click', function() {
-                dynamicCarousel.carousel('pause');
+                dynamicCarousel.carousel('pause'); // Ndalon menjëherë karoselin
+                
+                clearTimeout(pauseTimeout); // Fshin kohëmatësin e mëparshëm nëse klikohet sërish
+                
+                // Pas 8000 milisekondash (8 sekonda), karoseli rifillon automatikisht lëvizjen
+                pauseTimeout = setTimeout(function() {
+                    dynamicCarousel.carousel('cycle');
+                }, 8000);
             });
         });
     </script>
