@@ -111,7 +111,6 @@
             display: flex;
             background-color: #ffffff;
             border: 1px solid #e5e5e5;
-            border-left: 5px solid #1a2a6c;
             border-radius: 8px;
             overflow: hidden;
             transition: 0.3s;
@@ -131,11 +130,18 @@
         }
 
 
-          /* Data */
+          /* Data (Koka e Kartës) */
+
+        .njoftim-date-wrapper {
+            display: flex;
+            align-items: stretch;
+            border-left: 5px solid #ffca28; /* Kufiri i majtë i theksuar */
+        }
 
         .njoftim-date {
             width: 150px;
-            background-color: #f7f7f7;
+            background-color: #1a2a6c; /* Sfond blu të errët */
+            color: #ffffff; /* Tekst i bardhë */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -143,7 +149,6 @@
             text-align: center;
             font-weight: bold;
             font-size: 13px;
-            color: #1a2a6c;
         }
 
         /* Përmbajtja */
@@ -159,7 +164,7 @@
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 22px;
-            color: #1a2a6c;
+            color: #1a2a6c; /* Ngjyrë blu të errët */
         }
 
         /* Teksti */
@@ -175,12 +180,13 @@
         .tag {
             display: inline-block;
             margin-top: 15px;
-            background-color: #e8eaf6;
+            background-color: #ffca28; /* Ngjyrë e theksuar (verdhë) */
             color: #1a2a6c;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: bold;
+            transition: background-color 0.3s ease;
         }
 
 
@@ -249,9 +255,15 @@
                 flex-direction: column;
             }
 
-            .njoftim-date {
+            .njoftim-date-wrapper {
                 width: 100%;
                 border-bottom: 1px solid #e5e5e5;
+                border-left: none;
+            }
+
+            .njoftim-date {
+                width: 100%;
+                padding: 10px;
             }
 
             .njoftim-content h3 {
@@ -344,7 +356,7 @@
         <section class="njoftime-section">
             
             <div class="section-header text-center" style="margin-bottom: 35px;">
-                <h2>Lajmet e fundit</h2>
+                <h2 style="color: #1a2a6c;">Njoftime të fundit</h2>
                 <div class="underline"></div>
             </div>
 
@@ -442,66 +454,41 @@
                         Njoftime të fundit
                     </div>
                     
-                    <div class="shirit-njoftime-kontainer-madh">
-                        <div class="shirit-njoftime-wrapper">
-                            <div class="shirit-njoftime-track">
-                                
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">12 Maj 2026</div> 
-                                    <div class="njoftim-content">
-                                        <h3>Viti shkollor 2026-2027</h3>
-                                        <p>Sezoni i ri mësimor fillon zyrtarisht më 14 shtator 2026 dhe përfundon më 18 qershor 2027.</p>
-                                        <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">5-7 Maj 2026</div>
-                                    <div class="njoftim-content">
-                                        <h3>Aplikimi A1 dhe A1Z</h3>
-                                        <p>Informojmë maturantët se procesi i aplikimit do të kryhet gjatë fashës orare.</p>
-                                        <a href="Urdher A1.pdf" target="_blank"><span class="tag">Matura-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">Shkurt 2026</div>
-                                    <div class="njoftim-content">
-                                        <h3>Pajisja me Laptopë</h3>
-                                        <p>Gjimnazi Milot përfiton pajisje teknologjike falë Shkollës së Drejtorëve.</p>
-                                        <a href="https://www.facebook.com/share/p/1GvK9qaRkK/" target="_blank"><span class="tag">Teknologji-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">12 Maj 2026</div> 
-                                    <div class="njoftim-content">
-                                        <h3>Viti shkollor 2026-2027</h3>
-                                        <p>Sezoni i ri mësimor fillon zyrtarisht më 14 shtator 2026 dhe përfundon më 18 qershor 2027.</p>
-                                        <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">5-7 Maj 2026</div>
-                                    <div class="njoftim-content">
-                                        <h3>Aplikimi A1 dhe A1Z</h3>
-                                        <p>Informojmë maturantët se procesi i aplikimit do të kryhet gjatë fashës orare.</p>
-                                        <a href="Urdher A1.pdf" target="_blank"><span class="tag">Matura-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
-                                <article class="njoftim-card">
-                                    <div class="njoftim-date">Shkurt 2026</div>
-                                    <div class="njoftim-content">
-                                        <h3>Pajisja me Laptopë</h3>
-                                        <p>Gjimnazi Milot përfiton pajisje teknologjike falë Shkollës së Drejtorëve.</p>
-                                        <a href="https://www.facebook.com/share/p/1GvK9qaRkK/" target="_blank"><span class="tag">Teknologji-shiko më shumë</span></a>
-                                    </div>
-                                </article>
-
+                    <div class="njoftime-container">
+                        
+                        <article class="njoftim-card">
+                            <div class="njoftim-date-wrapper">
+                                <div class="njoftim-date">Shkurt 2026</div>
                             </div>
-                        </div>
+                            <div class="njoftim-content">
+                                <h3>Pajisja me Laptopë</h3>
+                                <p>Gjimnazi Milot përfiton pajisje teknologjike falë Shkollës së Drejtorëve.</p>
+                                <a href="https://www.facebook.com/share/p/1GvK9qaRkK/" target="_blank"><span class="tag">Teknologji-shiko më shumë</span></a>
+                            </div>
+                        </article>
+
+                        <article class="njoftim-card">
+                            <div class="njoftim-date-wrapper">
+                                <div class="njoftim-date">5-7 Maj 2026</div>
+                            </div>
+                            <div class="njoftim-content">
+                                <h3>Aplikimi A1 dhe A1Z</h3>
+                                <p>Informojmë maturantët se procesi i aplikimit do të kryhet gjatë fashës orare.</p>
+                                <a href="Urdher A1.pdf" target="_blank"><span class="tag">Matura-shiko më shumë</span></a>
+                            </div>
+                        </article>
+
+                        <article class="njoftim-card">
+                            <div class="njoftim-date-wrapper">
+                                <div class="njoftim-date">12 Maj 2026</div>
+                            </div>
+                            <div class="njoftim-content">
+                                <h3>Viti shkollor 2026-2027</h3>
+                                <p>Sezoni i ri mësimor fillon zyrtarisht më 14 shtator 2026 dhe përfundon më 18 qershor 2027.</p>
+                                <a href="Scanned Document 40.pdf" target="_blank"><span class="tag">Viti Shkollor-shiko më shumë</span></a>
+                            </div>
+                        </article>
+
                     </div>
 
                 </div>
